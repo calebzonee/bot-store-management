@@ -35,7 +35,7 @@ python -m unittest tests.test_rules -v
 
 ### Entry Point Flow (`main.py`)
 
-1. CLI prompts: feature (only `confirm_order` available), campaign date, price code mapping (A1-A9 → price)
+1. CLI prompts: feature (only `confirm_order` available), campaign date, run mode (tag/parity filter), price code mapping (A1-A9 → price)
 2. Load & validate `config.yaml` → `BotConfig` validates all required timeouts at startup
 3. Launch Playwright Chromium with session persistence (`data/session.json`)
 4. Maximize browser window via JS `window.resizeTo()` (Playwright locks viewport size, so JS maximize is needed; uses CSS pixels from `screen.availWidth/Height` which already account for Windows display scaling)
@@ -71,7 +71,7 @@ Orders are classified by address presence + OOS status + product match count. Ta
 
 **Filter condition**: orders with no tag OR tag 1.2/2.2 (recheck) + status "Nháp" + customer does NOT have any `keywords.skip_customer_tags`.
 
-**TAG 0**: customer has a skip-tag (e.g. "1 Tỷ lệ thấp") OR delivery rate below `bot.low_delivery_rate_pct` threshold → skip entirely.
+**TAG 0**: customer has a skip-tag (e.g. "1 Tỷ lệ thấp") OR cancelled order OR delivery rate below `bot.low_delivery_rate_pct` threshold → skip entirely. Small samples are exempt from the rate check: `0/0`, `x/1`, and `1/2` are treated as not-low.
 
 | Tag | Status Constant | Condition | Actions |
 | --- | --------------- | --------- | ------- |
@@ -99,6 +99,22 @@ Orders are classified by address presence + OOS status + product match count. Ta
 Sending priority: images first, then text. CSV "Comment" column tracks reply comment result: `ok` / `send_fail`.
 
 **FB comment reply**: prioritises comments containing 5+ consecutive `*` anywhere (e.g. `92k **********`). Falls back to first comment of the live day.
+
+### Run Modes (CLI tag/parity filter)
+
+Chosen at startup via `prompt_run_mode()` (`app/cli_helpers.py`). Implemented by `_should_skip_for_run_mode()` in `app/order_page.py` — orders that don't match still appear in CSV but their `Decision` is set to `skip_run_mode_filter` and no actions are sent. Parity is derived from the trailing digits of the order code via `_order_code_parity()`.
+
+| Mode value | Behavior |
+| ---------- | -------- |
+| `all` | Process every qualifying order (default) |
+| `tag_1_2_all` | Only TAG 1 and TAG 2 (any parity) |
+| `tag_1_2_even` | Only TAG 1 / TAG 2 with even order codes |
+| `tag_1_2_odd` | Only TAG 1 / TAG 2 with odd order codes |
+| `others_only` | Skip TAG 1 / TAG 2; process everything else (any parity). Alias: `RUN_MODE_OTHERS_ALL` |
+| `others_even` | Skip TAG 1 / TAG 2; only even order codes |
+| `others_odd` | Skip TAG 1 / TAG 2; only odd order codes |
+
+TAG 0 paths (cancelled order, non-"Bình thường" customer tag, low delivery rate) also pass through the run-mode filter — if filtered out, the row is marked `skip_run_mode_filter` instead of the original TAG 0 skip reason.
 
 ### Price Code Mapping (A-codes)
 
