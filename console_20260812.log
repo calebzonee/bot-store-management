@@ -1,0 +1,1162 @@
+[2026-08-12 06:20:28.714] ================================================================================
+[2026-08-12 06:20:28.728] [CLI] Selected options | feature=confirm_order | campaign='LIVE 11/8/2026' | run_mode=tag_1_2_even | price_codes=A1=165, A2=169, A3=169
+[2026-08-12 06:20:28.728] [START] Begin automation process
+[2026-08-12 06:20:38.065] [SCREEN] 1440x900 (scale=1x)
+[2026-08-12 06:20:38.065] [NAV] Open login page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:20:39.147] [NAV] Loaded page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:20:44.108] [NAV] Auto-login succeeded. Current page: https://linhdanshopld.tpos.vn/tpagev2/#/dashboard
+[2026-08-12 06:20:44.115] [NAV] Open order page: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:20:44.183] ================================================================================
+[2026-08-12 06:20:44.183] [CLI] Selected options | feature=confirm_order | campaign='LIVE 11/8/2026' | run_mode=tag_1_2_odd | price_codes=A1=165, A2=169, A3=169
+[2026-08-12 06:20:44.184] [START] Begin automation process
+[2026-08-12 06:20:45.498] [SCREEN] 1440x900 (scale=1x)
+[2026-08-12 06:20:45.499] [NAV] Open login page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:20:46.529] [NAV] Loaded page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:20:47.341] [NAV] Warning: order table rows not visible after 3000ms, proceeding anyway
+[2026-08-12 06:20:47.341] [NAV] Order page loaded: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:20:47.382] [FILTER] Rows before applying campaign filter: 101
+[2026-08-12 06:20:47.402] [FILTER] Open filter panel
+[2026-08-12 06:20:48.172] [FILTER] Focus campaign select
+[2026-08-12 06:20:48.690] [FILTER] Search campaign by date text: 11/8/2026
+[2026-08-12 06:20:49.219] [FILTER] Apply filter
+[2026-08-12 06:20:50.323] [FILTER] Applied campaign filter: LIVE 11/8/2026
+[2026-08-12 06:20:50.336] [FILTER] Rows right after filter apply: 50
+[2026-08-12 06:20:50.337] Single-pass collect+enrich (cap=unlimited)
+[2026-08-12 06:20:50.338] CSV: F:\tool\bot-store-management\data\orders_1182026_20260812_062050.csv
+[2026-08-12 06:20:50.373] SINGLE-PASS started: rows=50 on page=1
+[2026-08-12 06:20:50.373] TAG FILTER mode: only TAG 1 & TAG 2 with EVEN order codes will run actions
+[2026-08-12 06:20:50.374] Expected total from tab count=290
+[2026-08-12 06:20:50.385] [PAGE 1] 50 rows
+[2026-08-12 06:20:50.528] ------------------------------------------------------------
+[2026-08-12 06:20:50.528] ---- ORDER = 260804444  (1)  Việt Nguyễn  old_tag=(none) ----
+[2026-08-12 06:20:51.609] [NAV] Auto-login succeeded. Current page: https://linhdanshopld.tpos.vn/tpagev2/#/dashboard
+[2026-08-12 06:20:51.617] [NAV] Open order page: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:20:52.217]   PRODUCTS=[199] NOTE_PRICES=[199] MATCHED=1/1 EXACT=Y
+[2026-08-12 06:20:52.256]   CHECK ADDRESS -> VALID
+[2026-08-12 06:20:52.257]   CHECK OOS -> all in stock (1)
+[2026-08-12 06:20:52.257]   CHECK PRODUCT -> FULL 1-3 (1/1)
+[2026-08-12 06:20:53.657]   -> 260804444_B165_VANG_B165_Vang.jpg | 1920x2560 -> 940x1253 (49%) | 364kb -> 74kb | resized
+[2026-08-12 06:20:53.658]   SAVE IMAGE: 1/1 images (skipped=0) | total=75kb
+[2026-08-12 06:20:54.841] [NAV] Warning: order table rows not visible after 3000ms, proceeding anyway
+[2026-08-12 06:20:54.841] [NAV] Order page loaded: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:20:54.854] [FILTER] Rows before applying campaign filter: 101
+[2026-08-12 06:20:54.872] [FILTER] Open filter panel
+[2026-08-12 06:20:55.596] [FILTER] Focus campaign select
+[2026-08-12 06:20:56.146]   BILL: create_order_bill ok for 260804444
+[2026-08-12 06:20:56.155] [FILTER] Search campaign by date text: 11/8/2026
+[2026-08-12 06:20:56.633] [FILTER] Apply filter
+[2026-08-12 06:20:57.142] ================================================================================
+[2026-08-12 06:20:57.142] [CLI] Selected options | feature=confirm_order | campaign='LIVE 11/8/2026' | run_mode=others_even | price_codes=A1=165, A2=169, A3=169
+[2026-08-12 06:20:57.142] [START] Begin automation process
+[2026-08-12 06:20:57.732] [FILTER] Applied campaign filter: LIVE 11/8/2026
+[2026-08-12 06:20:57.744] [FILTER] Rows right after filter apply: 50
+[2026-08-12 06:20:57.744] Single-pass collect+enrich (cap=unlimited)
+[2026-08-12 06:20:57.745] CSV: F:\tool\bot-store-management\data\orders_1182026_20260812_062057.csv
+[2026-08-12 06:20:57.772] SINGLE-PASS started: rows=50 on page=1
+[2026-08-12 06:20:57.772] TAG FILTER mode: only TAG 1 & TAG 2 with ODD order codes will run actions
+[2026-08-12 06:20:57.772] Expected total from tab count=290
+[2026-08-12 06:20:57.783] [PAGE 1] 50 rows
+[2026-08-12 06:20:57.837] SKIP: stt=44392 order=260804444 reason=status not 'Nháp'
+[2026-08-12 06:20:57.969] ------------------------------------------------------------
+[2026-08-12 06:20:57.969] ---- ORDER = 260804443  (1)  Diễm Châu Review  old_tag=(none) ----
+[2026-08-12 06:20:58.534] [SCREEN] 1440x900 (scale=1x)
+[2026-08-12 06:20:58.535] [NAV] Open login page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:20:59.588] [NAV] Loaded page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:20:59.996]   PRODUCTS=[154, 147] NOTE_PRICES=[147, 154] MATCHED=2/2 EXACT=Y
+[2026-08-12 06:21:00.073]   CHECK ADDRESS -> VALID
+[2026-08-12 06:21:00.073]   CHECK OOS -> all in stock (2)
+[2026-08-12 06:21:00.073]   CHECK PRODUCT -> FULL 1-3 (2/2)
+[2026-08-12 06:21:00.158]   TAG -> 1
+[2026-08-12 06:21:00.859]   -> 260804443_H87_VANG_H87_Vang.jpg | 1365x1023 | 225kb -> 94kb | q=35
+[2026-08-12 06:21:02.206]   -> 260804443_K68_KEM_K68_Kem.jpg | 1920x2560 -> 831x1108 (43%) | 297kb -> 80kb | resized
+[2026-08-12 06:21:02.207]   SAVE IMAGE: 2/2 images (skipped=0) | total=175kb
+[2026-08-12 06:21:04.744] [NAV] Auto-login succeeded. Current page: https://linhdanshopld.tpos.vn/tpagev2/#/dashboard
+[2026-08-12 06:21:04.752] [NAV] Open order page: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:21:04.827]   BILL: create_order_bill ok for 260804443
+[2026-08-12 06:21:07.993] [NAV] Warning: order table rows not visible after 3000ms, proceeding anyway
+[2026-08-12 06:21:07.993] [NAV] Order page loaded: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:21:08.010] [FILTER] Rows before applying campaign filter: 101
+[2026-08-12 06:21:08.033] [FILTER] Open filter panel
+[2026-08-12 06:21:08.701]   TAG -> 1
+[2026-08-12 06:21:08.741] [FILTER] Focus campaign select
+[2026-08-12 06:21:09.245] [FILTER] Search campaign by date text: 11/8/2026
+[2026-08-12 06:21:09.731] [FILTER] Apply filter
+[2026-08-12 06:21:10.808] [FILTER] Applied campaign filter: LIVE 11/8/2026
+[2026-08-12 06:21:10.819] [FILTER] Rows right after filter apply: 50
+[2026-08-12 06:21:10.819] Single-pass collect+enrich (cap=unlimited)
+[2026-08-12 06:21:10.820] CSV: F:\tool\bot-store-management\data\orders_1182026_20260812_062110.csv
+[2026-08-12 06:21:10.846] SINGLE-PASS started: rows=50 on page=1
+[2026-08-12 06:21:10.846] TAG FILTER mode: TAG 1 & TAG 2 will be skipped; only EVEN order codes will run actions
+[2026-08-12 06:21:10.847] Expected total from tab count=290
+[2026-08-12 06:21:10.855] [PAGE 1] 50 rows
+[2026-08-12 06:21:10.885] SKIP: stt=44392 order=260804444 reason=tag '1'
+[2026-08-12 06:21:10.913] SKIP: stt=44391 order=260804443 reason=tag '1'
+[2026-08-12 06:21:11.022] ------------------------------------------------------------
+[2026-08-12 06:21:11.022] ---- ORDER = 260804442  (1)  Phuong Mai Vu  old_tag=(none) ----
+[2026-08-12 06:21:11.223]   IMG READY: images attached, indicator visible
+[2026-08-12 06:21:12.157] ================================================================================
+[2026-08-12 06:21:12.158] [CLI] Selected options | feature=confirm_order | campaign='LIVE 11/8/2026' | run_mode=others_odd | price_codes=A1=165, A2=169, A3=169
+[2026-08-12 06:21:12.158] [START] Begin automation process
+[2026-08-12 06:21:12.587]   CHECK ADDRESS -> VALID
+[2026-08-12 06:21:12.588]   CHECK OOS -> all in stock (0)
+[2026-08-12 06:21:12.588]   CHECK PRODUCT -> NO PRODUCT (0/0)
+[2026-08-12 06:21:13.435] [SCREEN] 1440x900 (scale=1x)
+[2026-08-12 06:21:13.435] [NAV] Open login page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:21:13.573]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:21:14.348] [NAV] Loaded page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:21:16.389]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:21:16.390]   [!] Send button: all 2 attempts done for 260804444
+[2026-08-12 06:21:19.424] [NAV] Auto-login succeeded. Current page: https://linhdanshopld.tpos.vn/tpagev2/#/dashboard
+[2026-08-12 06:21:19.430] [NAV] Open order page: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:21:19.822]   SEND: text='' | images=1
+[2026-08-12 06:21:19.879]   POST MATCH: 11-08-2026 18:58
+[2026-08-12 06:21:20.247]   IMG READY: images attached, indicator visible
+[2026-08-12 06:21:22.564]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:21:22.651] [NAV] Warning: order table rows not visible after 3000ms, proceeding anyway
+[2026-08-12 06:21:22.652] [NAV] Order page loaded: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:21:22.663] [FILTER] Rows before applying campaign filter: 101
+[2026-08-12 06:21:22.681] [FILTER] Open filter panel
+[2026-08-12 06:21:23.043]   COMMENT REPLY SENT: 'Chị Việt Nguyễn ơi ! shop lên đơn rồi ạ ! chị chec...'
+[2026-08-12 06:21:23.416] [FILTER] Focus campaign select
+[2026-08-12 06:21:23.926] [FILTER] Search campaign by date text: 11/8/2026
+[2026-08-12 06:21:23.993]   [!] Message panel still visible after close attempts
+[2026-08-12 06:21:24.430] [FILTER] Apply filter
+[2026-08-12 06:21:25.394]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:21:25.394]   [!] Send button: all 2 attempts done for 260804443
+[2026-08-12 06:21:25.512] [FILTER] Applied campaign filter: LIVE 11/8/2026
+[2026-08-12 06:21:25.529] [FILTER] Rows right after filter apply: 50
+[2026-08-12 06:21:25.530] Single-pass collect+enrich (cap=unlimited)
+[2026-08-12 06:21:25.530] CSV: F:\tool\bot-store-management\data\orders_1182026_20260812_062125.csv
+[2026-08-12 06:21:25.563] SINGLE-PASS started: rows=50 on page=1
+[2026-08-12 06:21:25.563] TAG FILTER mode: TAG 1 & TAG 2 will be skipped; only ODD order codes will run actions
+[2026-08-12 06:21:25.564] Expected total from tab count=290
+[2026-08-12 06:21:25.573] [PAGE 1] 50 rows
+[2026-08-12 06:21:25.602] SKIP: stt=44392 order=260804444 reason=tag '1'
+[2026-08-12 06:21:25.639] SKIP: stt=44391 order=260804443 reason=tag '1'
+[2026-08-12 06:21:25.756] ------------------------------------------------------------
+[2026-08-12 06:21:25.756] ---- ORDER = 260804442  (1)  Phuong Mai Vu  old_tag=(none) ----
+[2026-08-12 06:21:26.760]   BILL IMG: attachment ready while bill modal still open for 260804444 — closing modal and sending
+[2026-08-12 06:21:27.275]   CHECK ADDRESS -> VALID
+[2026-08-12 06:21:27.276]   CHECK OOS -> all in stock (0)
+[2026-08-12 06:21:27.276]   CHECK PRODUCT -> NO PRODUCT (0/0)
+[2026-08-12 06:21:27.277]   SKIP ALL ACTIONS: resolved_tag=1.3 (run mode filter)
+[2026-08-12 06:21:29.021]   SEND: text='' | images=2
+[2026-08-12 06:21:29.056]   POST MATCH: 11-08-2026 18:58
+[2026-08-12 06:21:29.311] [TAG] Update failed | order=260804442 target=1.3 error=Locator.click: Timeout 2500ms exceeded.
+Call log:
+  - waiting for locator("table tbody tr").filter(has_text="260804442").first.locator("td").nth(4).locator("button[tds-tooltip='Thêm nhãn'], button:has(i.tdsi-price-tag-fill)").first
+    - locator resolved to <button size="sm" tds-popover="" color="custom" tds-tooltip="Thêm nhãn" popoverplacement="left" class="bg-transparent border border-transparent focus:ring-transparent">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-label class="flex items-center tds-label-theme-default">…</tds-label> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <tds-label class="flex items-center tds-label-theme-default">…</tds-label> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  2 × retrying click action
+      - waiting 100ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="flex justify-center items-center text-centefa-rotate-180">…</div> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  2 × retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-label class="flex items-center tds-label-theme-default">…</tds-label> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  2 × retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="flex justify-center items-center text-centefa-rotate-180">…</div> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+
+[2026-08-12 06:21:29.311]   [!] TAG FAILED: target=1.3
+[2026-08-12 06:21:29.312]   SKIP MSG: tag-only tag=1.3
+[2026-08-12 06:21:29.312]   DONE ORDER = 260804442 | STT = 1 | TAG = 1.3 | MATCH = 0/0 | NAME = Phuong Mai Vu | TIME = 18.3s
+[2026-08-12 06:21:32.166]   COMMENT REPLY SENT: 'Chị Diễm Châu Review ơi ! shop lên đơn rồi ạ ! chị...'
+[2026-08-12 06:21:32.626]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:21:34.776]   [!] Message panel still visible after close attempts
+[2026-08-12 06:21:35.886]   BILL IMG: attachment ready while bill modal still open for 260804443 — closing modal and sending
+[2026-08-12 06:21:36.973]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:21:36.974]   [!] Send button: all 2 attempts done for 260804444
+[2026-08-12 06:21:38.575]   [!] Message panel still visible after close attempts
+[2026-08-12 06:21:40.005]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:21:40.394]   BILL IMG: sent for 260804444
+[2026-08-12 06:21:40.583]   CSV +1: total=1
+[2026-08-12 06:21:40.736] ------------------------------------------------------------
+[2026-08-12 06:21:40.737] ---- ORDER = 260804441  (2)  Lê Lanh  old_tag=(none) ----
+[2026-08-12 06:21:40.928]   DONE ORDER = 260804442 | STT = 1 | TAG = 1.3 | NAME = Phuong Mai Vu | TIME = 15.2s
+[2026-08-12 06:21:40.929]   CSV +1: total=1
+[2026-08-12 06:21:42.842]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:21:42.842]   [!] Send button: all 2 attempts done for 260804443
+[2026-08-12 06:21:44.247]   DONE ORDER = 260804444 | STT = 1 | TAG = 1 | MATCH = 1/1 | NAME = Việt Nguyễn | TIME = 53.7s
+[2026-08-12 06:21:44.357]   CSV +1: total=1
+[2026-08-12 06:21:44.507] ------------------------------------------------------------
+[2026-08-12 06:21:44.508] ---- ORDER = 260804443  (2)  Diễm Châu Review  old_tag=(none) ----
+[2026-08-12 06:21:45.911]   PRODUCTS=[154, 147] NOTE_PRICES=[147, 154] MATCHED=2/2 EXACT=Y
+[2026-08-12 06:21:45.961]   OOS: forecast_stocks=[0, 0] oos_count=2/2
+[2026-08-12 06:21:45.962]   CHECK ADDRESS -> VALID
+[2026-08-12 06:21:45.962]   CHECK OOS -> 2 hết hàng, 0 còn hàng | H87 VANG(154), K68 KEM(147)
+[2026-08-12 06:21:45.962]   CHECK PRODUCT -> OOS (2/2)
+[2026-08-12 06:21:45.962]   SKIP ALL ACTIONS: resolved_tag=1.4 (run mode filter)
+[2026-08-12 06:21:46.227]   [!] Message panel still visible after close attempts
+[2026-08-12 06:21:46.278]   BILL IMG: sent for 260804443
+[2026-08-12 06:21:46.444]   [!] Message panel still visible after close attempts
+[2026-08-12 06:21:50.152]   DONE ORDER = 260804443 | STT = 1 | TAG = 1 | MATCH = 2/2 | NAME = Diễm Châu Review | TIME = 52.2s
+[2026-08-12 06:21:50.249]   CSV +1: total=1
+[2026-08-12 06:21:50.409] ------------------------------------------------------------
+[2026-08-12 06:21:50.409] ---- ORDER = 260804442  (2)  Phuong Mai Vu  old_tag=(none) ----
+[2026-08-12 06:21:51.759]   CHECK ADDRESS -> VALID
+[2026-08-12 06:21:51.760]   CHECK OOS -> all in stock (0)
+[2026-08-12 06:21:51.760]   CHECK PRODUCT -> NO PRODUCT (0/0)
+[2026-08-12 06:21:51.760]   SKIP ALL ACTIONS: resolved_tag=1.3 (run mode filter)
+[2026-08-12 06:21:52.438] ------------------------------------------------------------
+[2026-08-12 06:21:52.438] ---- ORDER = 260804441  (2)  Lê Lanh  old_tag=(none) ----
+[2026-08-12 06:21:54.013]   [!] Message panel still visible after close attempts
+[2026-08-12 06:21:57.308]   [!] Message panel still visible after close attempts
+[2026-08-12 06:21:57.936]   [!] Message panel still visible after close attempts
+[2026-08-12 06:21:59.677]   DONE ORDER = 260804443 | STT = 2 | TAG = 1.4 | NAME = Diễm Châu Review | TIME = 15.2s
+[2026-08-12 06:21:59.678]   CSV +1: total=2
+[2026-08-12 06:21:59.931]   [!] open edit modal: normal click failed: Locator.click: Timeout 2500ms exceeded.
+Call log:
+  - waiting for locator("table tbody tr.tds-table-row").nth(3).locator("button[tds-tooltip='Chá»‰nh sá»­a'], button:has(i.tdsi-edit-fill), button[title='Sá»­a'], [aria-label='Sá»­a']").first
+    - locator resolved to <button size="sm" type="button" color="secondary" tds-tooltip="Chỉnh sửa" tds-button-outline-icon="" class="mr-2 tds-button tds-button-background-style-default tds-button-border-style-solid tds-button-secondary tds-button-secondary-theme-default tds-button-sm tds-button-theme-default tds-button-type-outline-icon">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-995 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-995 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    5 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-995 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+
+[2026-08-12 06:22:03.190]   [!] Message panel still visible after close attempts
+[2026-08-12 06:22:05.077]   [!] Message panel still visible after close attempts
+[2026-08-12 06:22:05.497]   DONE ORDER = 260804442 | STT = 2 | TAG = 1.3 | NAME = Phuong Mai Vu | TIME = 15.1s
+[2026-08-12 06:22:05.497]   CSV +1: total=2
+[2026-08-12 06:22:05.704]   [!] Message panel still visible after close attempts
+[2026-08-12 06:22:05.706]   [!] FAILED: Page.wait_for_timeout: Target page, context or browser has been closed
+[2026-08-12 06:22:05.709]   [!] Stack trace:
+Traceback (most recent call last):
+  File "F:\tool\bot-store-management\app\order_page.py", line 2158, in collect_and_enrich_single_pass
+    self.open_edit_modal_by_row(row)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "F:\tool\bot-store-management\app\order_page.py", line 3220, in open_edit_modal_by_row
+    self._click_locator_resilient(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        row.locator(
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        "open edit modal",
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "F:\tool\bot-store-management\app\order_page.py", line 210, in _click_locator_resilient
+    self.page.wait_for_timeout(100)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\sync_api\_generated.py", line 11536, in wait_for_timeout
+    self._sync(self._impl_obj.wait_for_timeout(timeout=timeout))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_page.py", line 1101, in wait_for_timeout
+    await self._main_frame.wait_for_timeout(timeout)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_frame.py", line 862, in wait_for_timeout
+    await self._channel.send("waitForTimeout", None, {"waitTimeout": timeout})
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Page.wait_for_timeout: Target page, context or browser has been closed
+
+[2026-08-12 06:22:05.709]   CSV +1: total=2
+[2026-08-12 06:22:05.721] [!] Page closed unexpectedly after order processing — stopping
+[2026-08-12 06:22:05.722] Done | processed=2 actioned=0 error=2 csv_rows=2
+[2026-08-12 06:22:05.723] [SHUTDOWN] Skip keep-open: page is already closed
+[2026-08-12 06:22:05.936] [SHUTDOWN] Closed browser context
+[2026-08-12 06:22:06.144] [SHUTDOWN] Closed browser
+[2026-08-12 06:22:06.144] [SHUTDOWN] Process ended.
+[2026-08-12 06:22:07.818]   [!] FAILED: Page.wait_for_timeout: Target page, context or browser has been closed
+[2026-08-12 06:22:07.821]   [!] Stack trace:
+Traceback (most recent call last):
+  File "F:\tool\bot-store-management\app\order_page.py", line 2158, in collect_and_enrich_single_pass
+    self.open_edit_modal_by_row(row)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "F:\tool\bot-store-management\app\order_page.py", line 3220, in open_edit_modal_by_row
+    self._click_locator_resilient(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        row.locator(
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        "open edit modal",
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "F:\tool\bot-store-management\app\order_page.py", line 210, in _click_locator_resilient
+    self.page.wait_for_timeout(100)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\sync_api\_generated.py", line 11536, in wait_for_timeout
+    self._sync(self._impl_obj.wait_for_timeout(timeout=timeout))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_page.py", line 1101, in wait_for_timeout
+    await self._main_frame.wait_for_timeout(timeout)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_frame.py", line 862, in wait_for_timeout
+    await self._channel.send("waitForTimeout", None, {"waitTimeout": timeout})
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Page.wait_for_timeout: Target page, context or browser has been closed
+
+[2026-08-12 06:22:07.822]   CSV +1: total=2
+[2026-08-12 06:22:07.834] [!] Page closed unexpectedly after order processing — stopping
+[2026-08-12 06:22:07.835] Done | processed=2 actioned=0 error=1 csv_rows=2
+[2026-08-12 06:22:07.835] [SHUTDOWN] Skip keep-open: page is already closed
+[2026-08-12 06:22:08.084] [SHUTDOWN] Closed browser context
+[2026-08-12 06:22:08.263] [SHUTDOWN] Closed browser
+[2026-08-12 06:22:08.263] [SHUTDOWN] Process ended.
+[2026-08-12 06:22:11.000]   [!] Message panel still visible after close attempts
+[2026-08-12 06:22:11.043] ------------------------------------------------------------
+[2026-08-12 06:22:11.044] ---- ORDER = 260804442  (3)  Phuong Mai Vu  old_tag=(none) ----
+[2026-08-12 06:22:16.498]   [!] Message panel still visible after close attempts
+[2026-08-12 06:22:16.933] ------------------------------------------------------------
+[2026-08-12 06:22:16.933] ---- ORDER = 260804441  (3)  Lê Lanh  old_tag=(none) ----
+[2026-08-12 06:22:22.320]   [!] Message panel still visible after close attempts
+[2026-08-12 06:22:24.288]   [!] Message panel still visible after close attempts
+[2026-08-12 06:22:30.102]   [!] Message panel still visible after close attempts
+[2026-08-12 06:22:30.218]   [!] open edit modal: normal click failed: Locator.click: Timeout 2500ms exceeded.
+Call log:
+  - waiting for locator("table tbody tr.tds-table-row").nth(2).locator("button[tds-tooltip='Chá»‰nh sá»­a'], button:has(i.tdsi-edit-fill), button[title='Sá»­a'], [aria-label='Sá»­a']").first
+    - locator resolved to <button size="sm" type="button" color="secondary" tds-tooltip="Chỉnh sửa" tds-button-outline-icon="" class="mr-2 tds-button tds-button-background-style-default tds-button-border-style-solid tds-button-secondary tds-button-secondary-theme-default tds-button-sm tds-button-theme-default tds-button-type-outline-icon">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1512 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1512 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    5 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1512 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+
+[2026-08-12 06:22:35.989]   [!] open edit modal: normal click failed: Locator.click: Timeout 2500ms exceeded.
+Call log:
+  - waiting for locator("table tbody tr.tds-table-row").nth(3).locator("button[tds-tooltip='Chá»‰nh sá»­a'], button:has(i.tdsi-edit-fill), button[title='Sá»­a'], [aria-label='Sá»­a']").first
+    - locator resolved to <button size="sm" type="button" color="secondary" tds-tooltip="Chỉnh sửa" tds-button-outline-icon="" class="mr-2 tds-button tds-button-background-style-default tds-button-border-style-solid tds-button-secondary tds-button-secondary-theme-default tds-button-sm tds-button-theme-default tds-button-type-outline-icon">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1522 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1522 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    5 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1522 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+
+[2026-08-12 06:22:36.093]   [!] Message panel still visible after close attempts
+[2026-08-12 06:22:39.268]   [!] FAILED: Page.wait_for_timeout: Target page, context or browser has been closed
+[2026-08-12 06:22:39.271]   [!] Stack trace:
+Traceback (most recent call last):
+  File "F:\tool\bot-store-management\app\order_page.py", line 2158, in collect_and_enrich_single_pass
+    self.open_edit_modal_by_row(row)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "F:\tool\bot-store-management\app\order_page.py", line 3220, in open_edit_modal_by_row
+    self._click_locator_resilient(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        row.locator(
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        "open edit modal",
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "F:\tool\bot-store-management\app\order_page.py", line 210, in _click_locator_resilient
+    self.page.wait_for_timeout(100)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\sync_api\_generated.py", line 11536, in wait_for_timeout
+    self._sync(self._impl_obj.wait_for_timeout(timeout=timeout))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_page.py", line 1101, in wait_for_timeout
+    await self._main_frame.wait_for_timeout(timeout)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_frame.py", line 862, in wait_for_timeout
+    await self._channel.send("waitForTimeout", None, {"waitTimeout": timeout})
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Page.wait_for_timeout: Target page, context or browser has been closed
+
+[2026-08-12 06:22:39.271]   CSV +1: total=3
+[2026-08-12 06:22:39.283] [!] Page closed unexpectedly after order processing — stopping
+[2026-08-12 06:22:39.283] Done | processed=3 actioned=2 error=1 csv_rows=3
+[2026-08-12 06:22:39.284] [SHUTDOWN] Skip keep-open: page is already closed
+[2026-08-12 06:22:39.286] [SHUTDOWN] Skip saving session state: BrowserContext.storage_state: Target page, context or browser has been closed
+[2026-08-12 06:22:39.287] [SHUTDOWN] Closed browser context
+[2026-08-12 06:22:39.289] [SHUTDOWN] Closed browser
+[2026-08-12 06:22:39.289] [SHUTDOWN] Process ended.
+[2026-08-12 06:22:41.931]   [!] Message panel still visible after close attempts
+[2026-08-12 06:22:44.586]   [!] FAILED: Page.wait_for_timeout: Target page, context or browser has been closed
+[2026-08-12 06:22:44.591]   [!] Stack trace:
+Traceback (most recent call last):
+  File "F:\tool\bot-store-management\app\order_page.py", line 2158, in collect_and_enrich_single_pass
+    self.open_edit_modal_by_row(row)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "F:\tool\bot-store-management\app\order_page.py", line 3220, in open_edit_modal_by_row
+    self._click_locator_resilient(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        row.locator(
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        "open edit modal",
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "F:\tool\bot-store-management\app\order_page.py", line 205, in _click_locator_resilient
+    self._wait_for_blocking_overlays_hidden(timeout_ms=max(self._cfg.overlay_dismiss_ms * 2, 500))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\tool\bot-store-management\app\order_page.py", line 182, in _wait_for_blocking_overlays_hidden
+    self.page.wait_for_timeout(100)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\sync_api\_generated.py", line 11536, in wait_for_timeout
+    self._sync(self._impl_obj.wait_for_timeout(timeout=timeout))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_page.py", line 1101, in wait_for_timeout
+    await self._main_frame.wait_for_timeout(timeout)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_frame.py", line 862, in wait_for_timeout
+    await self._channel.send("waitForTimeout", None, {"waitTimeout": timeout})
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Page.wait_for_timeout: Target page, context or browser has been closed
+
+[2026-08-12 06:22:44.592]   CSV +1: total=3
+[2026-08-12 06:22:44.609] [!] Page closed unexpectedly after order processing — stopping
+[2026-08-12 06:22:44.610] Done | processed=3 actioned=1 error=1 csv_rows=3
+[2026-08-12 06:22:44.610] [SHUTDOWN] Skip keep-open: page is already closed
+[2026-08-12 06:22:44.639] [SHUTDOWN] Skip saving session state: BrowserContext.storage_state: Target page, context or browser has been closed
+[2026-08-12 06:22:44.644] [SHUTDOWN] Closed browser context
+[2026-08-12 06:22:44.652] [SHUTDOWN] Closed browser
+[2026-08-12 06:22:44.653] [SHUTDOWN] Process ended.
+[2026-08-12 06:23:59.017] ================================================================================
+[2026-08-12 06:23:59.017] [CLI] Selected options | feature=confirm_order | campaign='LIVE 11/8/2026' | run_mode=tag_1_2_even | price_codes=A1=165, A2=169, A3=169
+[2026-08-12 06:23:59.018] [START] Begin automation process
+[2026-08-12 06:24:00.195] [SCREEN] 1440x900 (scale=1x)
+[2026-08-12 06:24:00.196] [NAV] Open login page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:24:01.214] [NAV] Loaded page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:24:06.158] [NAV] Auto-login succeeded. Current page: https://linhdanshopld.tpos.vn/tpagev2/#/dashboard
+[2026-08-12 06:24:06.164] [NAV] Open order page: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:24:09.389] [NAV] Warning: order table rows not visible after 3000ms, proceeding anyway
+[2026-08-12 06:24:09.390] [NAV] Order page loaded: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:24:09.407] [FILTER] Rows before applying campaign filter: 101
+[2026-08-12 06:24:09.433] [FILTER] Open filter panel
+[2026-08-12 06:24:10.154] [FILTER] Focus campaign select
+[2026-08-12 06:24:10.680] [FILTER] Search campaign by date text: 11/8/2026
+[2026-08-12 06:24:11.168] [FILTER] Apply filter
+[2026-08-12 06:24:12.263] [FILTER] Applied campaign filter: LIVE 11/8/2026
+[2026-08-12 06:24:12.279] [FILTER] Rows right after filter apply: 50
+[2026-08-12 06:24:12.280] Single-pass collect+enrich (cap=unlimited)
+[2026-08-12 06:24:12.281] CSV: F:\tool\bot-store-management\data\orders_1182026_20260812_062412.csv
+[2026-08-12 06:24:12.306] SINGLE-PASS started: rows=50 on page=1
+[2026-08-12 06:24:12.306] TAG FILTER mode: only TAG 1 & TAG 2 with EVEN order codes will run actions
+[2026-08-12 06:24:12.306] Expected total from tab count=290
+[2026-08-12 06:24:12.317] [PAGE 1] 50 rows
+[2026-08-12 06:24:12.347] SKIP: stt=44392 order=260804444 reason=tag '1'
+[2026-08-12 06:24:12.374] SKIP: stt=44391 order=260804443 reason=tag '1'
+[2026-08-12 06:24:12.493] ------------------------------------------------------------
+[2026-08-12 06:24:12.494] ---- ORDER = 260804442  (1)  Phuong Mai Vu  old_tag=(none) ----
+[2026-08-12 06:24:13.898]   CHECK ADDRESS -> VALID
+[2026-08-12 06:24:13.898]   CHECK OOS -> all in stock (0)
+[2026-08-12 06:24:13.899]   CHECK PRODUCT -> NO PRODUCT (0/0)
+[2026-08-12 06:24:13.899]   SKIP ALL ACTIONS: resolved_tag=1.3 (run mode filter)
+[2026-08-12 06:24:25.293]   [!] Message panel still visible after close attempts
+[2026-08-12 06:24:27.615]   DONE ORDER = 260804442 | STT = 1 | TAG = 1.3 | NAME = Phuong Mai Vu | TIME = 15.1s
+[2026-08-12 06:24:27.616]   CSV +1: total=1
+[2026-08-12 06:24:33.112]   [!] Message panel still visible after close attempts
+[2026-08-12 06:24:39.075] ------------------------------------------------------------
+[2026-08-12 06:24:39.075] ---- ORDER = 260804441  (2)  Lê Lanh  old_tag=(none) ----
+[2026-08-12 06:24:44.554]   [!] Message panel still visible after close attempts
+[2026-08-12 06:24:52.377]   [!] Message panel still visible after close attempts
+[2026-08-12 06:24:58.302]   [!] open edit modal: normal click failed: Locator.click: Timeout 2500ms exceeded.
+Call log:
+  - waiting for locator("table tbody tr.tds-table-row").nth(3).locator("button[tds-tooltip='Chá»‰nh sá»­a'], button:has(i.tdsi-edit-fill), button[title='Sá»­a'], [aria-label='Sá»­a']").first
+    - locator resolved to <button size="sm" type="button" color="secondary" tds-tooltip="Chỉnh sửa" tds-button-outline-icon="" class="mr-2 tds-button tds-button-background-style-default tds-button-border-style-solid tds-button-secondary tds-button-secondary-theme-default tds-button-sm tds-button-theme-default tds-button-type-outline-icon">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-996 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-996 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    4 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-996 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+
+[2026-08-12 06:25:04.269]   [!] Message panel still visible after close attempts
+[2026-08-12 06:25:08.117]   [!] Modal mismatch: expected=260804441 got=260804442
+[2026-08-12 06:25:13.949]   [!] FAILED: modal shows wrong order, expected 260804441
+[2026-08-12 06:25:13.950]   [!] Stack trace:
+Traceback (most recent call last):
+  File "F:\tool\bot-store-management\app\order_page.py", line 2163, in collect_and_enrich_single_pass
+    raise ValueError(f"modal shows wrong order, expected {order_code}")
+ValueError: modal shows wrong order, expected 260804441
+
+[2026-08-12 06:25:19.521]   [!] Message panel still visible after close attempts
+[2026-08-12 06:25:22.257] [INTERRUPT] Stop requested by user (Ctrl+C). Shutting down cleanly...
+[2026-08-12 06:25:50.758] ================================================================================
+[2026-08-12 06:25:50.758] [CLI] Selected options | feature=confirm_order | campaign='LIVE 11/8/2026' | run_mode=tag_1_2_even | price_codes=A1=165, A2=169, A3=169
+[2026-08-12 06:25:50.759] [START] Begin automation process
+[2026-08-12 06:25:52.103] [SCREEN] 1440x900 (scale=1x)
+[2026-08-12 06:25:52.104] [NAV] Open login page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:25:53.281] [NAV] Loaded page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:25:58.595] [NAV] Auto-login succeeded. Current page: https://linhdanshopld.tpos.vn/tpagev2/#/dashboard
+[2026-08-12 06:25:58.604] [NAV] Open order page: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:26:01.832] [NAV] Warning: order table rows not visible after 3000ms, proceeding anyway
+[2026-08-12 06:26:01.833] [NAV] Order page loaded: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:26:01.857] [FILTER] Rows before applying campaign filter: 101
+[2026-08-12 06:26:01.910] [FILTER] Open filter panel
+[2026-08-12 06:26:02.678] [FILTER] Focus campaign select
+[2026-08-12 06:26:03.299] [FILTER] Search campaign by date text: 11/8/2026
+[2026-08-12 06:26:03.814] [FILTER] Apply filter
+[2026-08-12 06:26:04.966] [FILTER] Applied campaign filter: LIVE 11/8/2026
+[2026-08-12 06:26:04.989] [FILTER] Rows right after filter apply: 50
+[2026-08-12 06:26:04.989] Single-pass collect+enrich (cap=unlimited)
+[2026-08-12 06:26:04.990] CSV: F:\tool\bot-store-management\data\orders_1182026_20260812_062604.csv
+[2026-08-12 06:26:05.029] SINGLE-PASS started: rows=50 on page=1
+[2026-08-12 06:26:05.030] TAG FILTER mode: only TAG 1 & TAG 2 with EVEN order codes will run actions
+[2026-08-12 06:26:05.031] Expected total from tab count=290
+[2026-08-12 06:26:05.046] [PAGE 1] 50 rows
+[2026-08-12 06:26:05.091] SKIP: stt=44392 order=260804444 reason=tag '1'
+[2026-08-12 06:26:05.142] SKIP: stt=44391 order=260804443 reason=tag '1'
+[2026-08-12 06:26:05.277] ------------------------------------------------------------
+[2026-08-12 06:26:05.278] ---- ORDER = 260804442  (1)  Phuong Mai Vu  old_tag=(none) ----
+[2026-08-12 06:26:07.105]   CHECK ADDRESS -> VALID
+[2026-08-12 06:26:07.106]   CHECK OOS -> all in stock (0)
+[2026-08-12 06:26:07.106]   CHECK PRODUCT -> NO PRODUCT (0/0)
+[2026-08-12 06:26:07.106]   SKIP ALL ACTIONS: resolved_tag=1.3 (run mode filter)
+[2026-08-12 06:26:18.682]   [!] Message panel still visible after close attempts
+[2026-08-12 06:26:21.010]   DONE ORDER = 260804442 | STT = 1 | TAG = 1.3 | NAME = Phuong Mai Vu | TIME = 15.7s
+[2026-08-12 06:26:21.010]   CSV +1: total=1
+[2026-08-12 06:26:26.840]   [!] Message panel still visible after close attempts
+[2026-08-12 06:26:32.856] ------------------------------------------------------------
+[2026-08-12 06:26:32.856] ---- ORDER = 260804441  (2)  Lê Lanh  old_tag=(none) ----
+[2026-08-12 06:26:38.450]   [!] Message panel still visible after close attempts
+[2026-08-12 06:26:46.355]   [!] Message panel still visible after close attempts
+[2026-08-12 06:26:48.693]   PRODUCTS=[165] NOTE_PRICES=[165] MATCHED=1/1 EXACT=Y
+[2026-08-12 06:26:48.753]   CHECK ADDRESS -> VALID
+[2026-08-12 06:26:48.754]   CHECK OOS -> all in stock (1)
+[2026-08-12 06:26:48.754]   CHECK PRODUCT -> FULL 1-3 (1/1)
+[2026-08-12 06:26:48.755]   SKIP ALL ACTIONS: resolved_tag=1 (run mode filter)
+[2026-08-12 06:27:00.267]   [!] Message panel still visible after close attempts
+[2026-08-12 06:27:02.604]   DONE ORDER = 260804441 | STT = 2 | TAG = 1 | NAME = Lê Lanh | TIME = 29.7s
+[2026-08-12 06:27:02.604]   CSV +1: total=2
+[2026-08-12 06:27:08.119]   [!] Message panel still visible after close attempts
+[2026-08-12 06:27:14.094] ------------------------------------------------------------
+[2026-08-12 06:27:14.095] ---- ORDER = 260804440  (3)  Trang Pham  old_tag=(none) ----
+[2026-08-12 06:27:19.650]   [!] Message panel still visible after close attempts
+[2026-08-12 06:27:27.590]   [!] Message panel still visible after close attempts
+[2026-08-12 06:27:33.500]   [!] open edit modal: normal click failed: Locator.click: Timeout 2500ms exceeded.
+Call log:
+  - waiting for locator("table tbody tr.tds-table-row").nth(4).locator("button[tds-tooltip='Chá»‰nh sá»­a'], button:has(i.tdsi-edit-fill), button[title='Sá»­a'], [aria-label='Sá»­a']").first
+    - locator resolved to <button size="sm" type="button" color="secondary" tds-tooltip="Chỉnh sửa" tds-button-outline-icon="" class="mr-2 tds-button tds-button-background-style-default tds-button-border-style-solid tds-button-secondary tds-button-secondary-theme-default tds-button-sm tds-button-theme-default tds-button-type-outline-icon">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1009 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1009 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    4 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1009 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+
+[2026-08-12 06:27:39.617]   [!] Message panel still visible after close attempts
+[2026-08-12 06:27:43.420]   [!] Modal mismatch: expected=260804440 got=260804441
+[2026-08-12 06:27:49.241]   [!] FAILED: modal shows wrong order, expected 260804440
+[2026-08-12 06:27:49.242]   [!] Stack trace:
+Traceback (most recent call last):
+  File "F:\tool\bot-store-management\app\order_page.py", line 2163, in collect_and_enrich_single_pass
+    raise ValueError(f"modal shows wrong order, expected {order_code}")
+ValueError: modal shows wrong order, expected 260804440
+
+[2026-08-12 06:27:54.792]   [!] Message panel still visible after close attempts
+[2026-08-12 06:28:00.603]   CSV +1: total=3
+[2026-08-12 06:28:00.741] ------------------------------------------------------------
+[2026-08-12 06:28:00.742] ---- ORDER = 260804439  (4)  Nguyễn Thị Ái  old_tag=(none) ----
+[2026-08-12 06:28:06.230]   [!] Message panel still visible after close attempts
+[2026-08-12 06:28:11.613] [INTERRUPT] Stop requested by user (Ctrl+C). Shutting down cleanly...
+[2026-08-12 06:28:20.412] [INTERRUPT] Forced stop during cleanup (Ctrl+C x2). Exiting.
+[2026-08-12 06:28:20.412] [SHUTDOWN] Process ended.
+[2026-08-12 06:33:10.433] ================================================================================
+[2026-08-12 06:33:10.433] [CLI] Selected options | feature=confirm_order | campaign='LIVE 11/8/2026' | run_mode=tag_1_2_even | price_codes=A1=165, A2=169, A3=169
+[2026-08-12 06:33:10.433] [START] Begin automation process
+[2026-08-12 06:33:11.598] [SCREEN] 1440x900 (scale=1x)
+[2026-08-12 06:33:11.599] [NAV] Open login page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:33:12.590] [NAV] Loaded page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:33:17.498] [NAV] Auto-login succeeded. Current page: https://linhdanshopld.tpos.vn/tpagev2/#/dashboard
+[2026-08-12 06:33:17.504] [NAV] Open order page: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:33:20.730] [NAV] Warning: order table rows not visible after 3000ms, proceeding anyway
+[2026-08-12 06:33:20.730] [NAV] Order page loaded: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:33:20.741] [FILTER] Rows before applying campaign filter: 101
+[2026-08-12 06:33:20.759] [FILTER] Open filter panel
+[2026-08-12 06:33:21.474] [FILTER] Focus campaign select
+[2026-08-12 06:33:22.001] [FILTER] Search campaign by date text: 11/8/2026
+[2026-08-12 06:33:22.483] [FILTER] Apply filter
+[2026-08-12 06:33:23.557] [FILTER] Applied campaign filter: LIVE 11/8/2026
+[2026-08-12 06:33:23.574] [FILTER] Rows right after filter apply: 50
+[2026-08-12 06:33:23.574] Single-pass collect+enrich (cap=unlimited)
+[2026-08-12 06:33:23.575] CSV: F:\tool\bot-store-management\data\orders_1182026_20260812_063323.csv
+[2026-08-12 06:33:23.600] SINGLE-PASS started: rows=50 on page=1
+[2026-08-12 06:33:23.600] TAG FILTER mode: only TAG 1 & TAG 2 with EVEN order codes will run actions
+[2026-08-12 06:33:23.601] Expected total from tab count=290
+[2026-08-12 06:33:23.610] [PAGE 1] 50 rows
+[2026-08-12 06:33:23.641] SKIP: stt=44392 order=260804444 reason=tag '1'
+[2026-08-12 06:33:23.670] SKIP: stt=44391 order=260804443 reason=tag '1'
+[2026-08-12 06:33:23.698] SKIP: stt=44390 order=260804442 reason=tag '7'
+[2026-08-12 06:33:23.812] ------------------------------------------------------------
+[2026-08-12 06:33:23.812] ---- ORDER = 260804441  (1)  Lê Lanh  old_tag=(none) ----
+[2026-08-12 06:33:25.243]   PRODUCTS=[165] NOTE_PRICES=[165] MATCHED=1/1 EXACT=Y
+[2026-08-12 06:33:25.276]   CHECK ADDRESS -> VALID
+[2026-08-12 06:33:25.277]   CHECK OOS -> all in stock (1)
+[2026-08-12 06:33:25.277]   CHECK PRODUCT -> FULL 1-3 (1/1)
+[2026-08-12 06:33:25.278]   SKIP ALL ACTIONS: resolved_tag=1 (run mode filter)
+[2026-08-12 06:33:36.705]   [!] Message panel still visible after close attempts
+[2026-08-12 06:33:39.034]   DONE ORDER = 260804441 | STT = 1 | TAG = 1 | NAME = Lê Lanh | TIME = 15.2s
+[2026-08-12 06:33:39.035]   CSV +1: total=1
+[2026-08-12 06:33:44.454]   [!] Message panel still visible after close attempts
+[2026-08-12 06:33:50.427] ------------------------------------------------------------
+[2026-08-12 06:33:50.427] ---- ORDER = 260804440  (2)  Trang Pham  old_tag=(none) ----
+[2026-08-12 06:33:55.933] [INTERRUPT] Stop requested by user (Ctrl+C). Shutting down cleanly...
+[2026-08-12 06:34:00.693] [INTERRUPT] Forced stop during cleanup (Ctrl+C x2). Exiting.
+[2026-08-12 06:34:00.693] [SHUTDOWN] Process ended.
+[2026-08-12 06:34:35.514] ================================================================================
+[2026-08-12 06:34:35.514] [CLI] Selected options | feature=confirm_order | campaign='LIVE 11/8/2026' | run_mode=tag_1_2_odd | price_codes=A1=165, A2=169, A3=169
+[2026-08-12 06:34:35.515] [START] Begin automation process
+[2026-08-12 06:34:36.604] [SCREEN] 1440x900 (scale=1x)
+[2026-08-12 06:34:36.604] [NAV] Open login page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:34:37.629] [NAV] Loaded page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:34:42.559] [NAV] Auto-login succeeded. Current page: https://linhdanshopld.tpos.vn/tpagev2/#/dashboard
+[2026-08-12 06:34:42.565] [NAV] Open order page: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:34:45.794] [NAV] Warning: order table rows not visible after 3000ms, proceeding anyway
+[2026-08-12 06:34:45.795] [NAV] Order page loaded: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:34:45.807] [FILTER] Rows before applying campaign filter: 101
+[2026-08-12 06:34:45.827] [FILTER] Open filter panel
+[2026-08-12 06:34:46.577] [FILTER] Focus campaign select
+[2026-08-12 06:34:47.099] [FILTER] Search campaign by date text: 11/8/2026
+[2026-08-12 06:34:47.610] [FILTER] Apply filter
+[2026-08-12 06:34:48.693] [FILTER] Applied campaign filter: LIVE 11/8/2026
+[2026-08-12 06:34:48.707] [FILTER] Rows right after filter apply: 50
+[2026-08-12 06:34:48.708] Single-pass collect+enrich (cap=unlimited)
+[2026-08-12 06:34:48.708] CSV: F:\tool\bot-store-management\data\orders_1182026_20260812_063448.csv
+[2026-08-12 06:34:48.733] SINGLE-PASS started: rows=50 on page=1
+[2026-08-12 06:34:48.734] TAG FILTER mode: only TAG 1 & TAG 2 with ODD order codes will run actions
+[2026-08-12 06:34:48.734] Expected total from tab count=290
+[2026-08-12 06:34:48.745] [PAGE 1] 50 rows
+[2026-08-12 06:34:48.775] SKIP: stt=44392 order=260804444 reason=tag '1'
+[2026-08-12 06:34:48.802] SKIP: stt=44391 order=260804443 reason=tag '1'
+[2026-08-12 06:34:48.828] SKIP: stt=44390 order=260804442 reason=tag '7'
+[2026-08-12 06:34:48.929] ------------------------------------------------------------
+[2026-08-12 06:34:48.929] ---- ORDER = 260804441  (1)  Lê Lanh  old_tag=(none) ----
+[2026-08-12 06:34:50.371]   PRODUCTS=[165] NOTE_PRICES=[165] MATCHED=1/1 EXACT=Y
+[2026-08-12 06:34:50.404]   CHECK ADDRESS -> VALID
+[2026-08-12 06:34:50.404]   CHECK OOS -> all in stock (1)
+[2026-08-12 06:34:50.405]   CHECK PRODUCT -> FULL 1-3 (1/1)
+[2026-08-12 06:34:51.486]   -> 260804441_C240_KEM_C240_Kem.jpg | 1920x2560 -> 1070x1428 (56%) | 187kb -> 84kb | resized
+[2026-08-12 06:34:51.486]   SAVE IMAGE: 1/1 images (skipped=0) | total=85kb
+[2026-08-12 06:34:53.938]   BILL: create_order_bill ok for 260804441
+[2026-08-12 06:34:57.671]   TAG -> 1
+[2026-08-12 06:35:08.585]   IMG READY: images attached, indicator visible
+[2026-08-12 06:35:10.932]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:35:13.789]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:35:13.790]   [!] Send button: all 2 attempts done for 260804441
+[2026-08-12 06:35:17.218]   SEND: text='' | images=1
+[2026-08-12 06:35:17.236]   POST MATCH: 11-08-2026 18:58
+[2026-08-12 06:35:20.283]   COMMENT REPLY SENT: 'Shop lên đơn ! chị Lê Lanh xem tin mess ạ....'
+[2026-08-12 06:35:21.670]   [!] BILL IMG: attempt 1 failed for 260804441: three-dots button not found — retrying...
+[2026-08-12 06:35:25.991]   BILL IMG: attachment ready while bill modal still open for 260804441 — closing modal and sending
+[2026-08-12 06:35:29.188]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:35:32.044]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:35:32.045]   [!] Send button: all 2 attempts done for 260804441
+[2026-08-12 06:35:35.474]   BILL IMG: sent for 260804441
+[2026-08-12 06:35:39.356]   DONE ORDER = 260804441 | STT = 1 | TAG = 1 | MATCH = 1/1 | NAME = Lê Lanh | TIME = 50.4s
+[2026-08-12 06:35:39.459]   CSV +1: total=1
+[2026-08-12 06:35:39.587] ------------------------------------------------------------
+[2026-08-12 06:35:39.588] ---- ORDER = 260804440  (2)  Trang Pham  old_tag=(none) ----
+[2026-08-12 06:35:40.959]   PRODUCTS=[163] NOTE_PRICES=[163] MATCHED=1/1 EXACT=Y
+[2026-08-12 06:35:40.991]   CHECK ADDRESS -> EMPTY
+[2026-08-12 06:35:40.992]   CHECK OOS -> all in stock (1)
+[2026-08-12 06:35:40.992]   CHECK PRODUCT -> FULL 1-3 (1/1)
+[2026-08-12 06:35:40.992]   SKIP ALL ACTIONS: resolved_tag=2 (run mode filter)
+[2026-08-12 06:35:52.364]   [!] Message panel still visible after close attempts
+[2026-08-12 06:35:54.688]   DONE ORDER = 260804440 | STT = 2 | TAG = 2 | NAME = Trang Pham | TIME = 15.1s
+[2026-08-12 06:35:54.688]   CSV +1: total=2
+[2026-08-12 06:36:00.181]   [!] Message panel still visible after close attempts
+[2026-08-12 06:36:06.136] ------------------------------------------------------------
+[2026-08-12 06:36:06.137] ---- ORDER = 260804439  (3)  Nguyễn Thị Ái  old_tag=(none) ----
+[2026-08-12 06:36:11.615]   [!] Message panel still visible after close attempts
+[2026-08-12 06:36:19.424]   [!] Message panel still visible after close attempts
+[2026-08-12 06:36:25.489]   [!] open edit modal: normal click failed: Locator.click: Timeout 2500ms exceeded.
+Call log:
+  - waiting for locator("table tbody tr.tds-table-row").nth(5).locator("button[tds-tooltip='Chá»‰nh sá»­a'], button:has(i.tdsi-edit-fill), button[title='Sá»­a'], [aria-label='Sá»­a']").first
+    - locator resolved to <button size="sm" type="button" color="secondary" tds-tooltip="Chỉnh sửa" tds-button-outline-icon="" class="mr-2 tds-button tds-button-background-style-default tds-button-border-style-solid tds-button-secondary tds-button-secondary-theme-default tds-button-sm tds-button-theme-default tds-button-type-outline-icon">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1521 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1521 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    4 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1521 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+
+[2026-08-12 06:36:31.502]   [!] Message panel still visible after close attempts
+[2026-08-12 06:36:35.283]   [!] Modal mismatch: expected=260804439 got=260804440
+[2026-08-12 06:36:41.066]   [!] FAILED: modal shows wrong order, expected 260804439
+[2026-08-12 06:36:41.067]   [!] Stack trace:
+Traceback (most recent call last):
+  File "F:\tool\bot-store-management\app\order_page.py", line 2163, in collect_and_enrich_single_pass
+    raise ValueError(f"modal shows wrong order, expected {order_code}")
+ValueError: modal shows wrong order, expected 260804439
+
+[2026-08-12 06:36:46.584]   [!] Message panel still visible after close attempts
+[2026-08-12 06:36:52.423]   CSV +1: total=3
+[2026-08-12 06:36:52.571] ------------------------------------------------------------
+[2026-08-12 06:36:52.571] ---- ORDER = 260804438  (4)  Hồ Duyên  old_tag=(none) ----
+[2026-08-12 06:37:07.853] [INTERRUPT] Stop requested by user (Ctrl+C). Shutting down cleanly...
+[2026-08-12 06:37:17.637] [INTERRUPT] Forced stop during cleanup (Ctrl+C x2). Exiting.
+[2026-08-12 06:37:17.637] [SHUTDOWN] Process ended.
+[2026-08-12 06:40:32.797] ================================================================================
+[2026-08-12 06:40:32.798] [CLI] Selected options | feature=confirm_order | campaign='LIVE 11/8/2026' | run_mode=all | price_codes=A1=165, A2=169, A3=169
+[2026-08-12 06:40:32.798] [START] Begin automation process
+[2026-08-12 06:40:33.923] [SCREEN] 1440x900 (scale=1x)
+[2026-08-12 06:40:33.924] [NAV] Open login page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:40:35.019] [NAV] Loaded page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:40:39.962] [NAV] Auto-login succeeded. Current page: https://linhdanshopld.tpos.vn/tpagev2/#/dashboard
+[2026-08-12 06:40:39.968] [NAV] Open order page: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:40:43.194] [NAV] Warning: order table rows not visible after 3000ms, proceeding anyway
+[2026-08-12 06:40:43.194] [NAV] Order page loaded: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:40:43.210] [FILTER] Rows before applying campaign filter: 101
+[2026-08-12 06:40:43.236] [FILTER] Open filter panel
+[2026-08-12 06:40:43.972] [FILTER] Focus campaign select
+[2026-08-12 06:40:44.499] [FILTER] Search campaign by date text: 11/8/2026
+[2026-08-12 06:40:45.005] [FILTER] Apply filter
+[2026-08-12 06:40:46.086] [FILTER] Applied campaign filter: LIVE 11/8/2026
+[2026-08-12 06:40:46.104] [FILTER] Rows right after filter apply: 50
+[2026-08-12 06:40:46.105] Single-pass collect+enrich (cap=unlimited)
+[2026-08-12 06:40:46.105] CSV: F:\tool\bot-store-management\data\orders_1182026_20260812_064046.csv
+[2026-08-12 06:40:46.136] SINGLE-PASS started: rows=50 on page=1
+[2026-08-12 06:40:46.136] Expected total from tab count=290
+[2026-08-12 06:40:46.146] [PAGE 1] 50 rows
+[2026-08-12 06:40:46.176] SKIP: stt=44392 order=260804444 reason=tag '1'
+[2026-08-12 06:40:46.204] SKIP: stt=44391 order=260804443 reason=tag '1'
+[2026-08-12 06:40:46.230] SKIP: stt=44390 order=260804442 reason=tag '7'
+[2026-08-12 06:40:46.256] SKIP: stt=44389 order=260804441 reason=tag '1'
+[2026-08-12 06:40:46.380] ------------------------------------------------------------
+[2026-08-12 06:40:46.380] ---- ORDER = 260804440  (1)  Trang Pham  old_tag=(none) ----
+[2026-08-12 06:40:47.852]   PRODUCTS=[163] NOTE_PRICES=[163] MATCHED=1/1 EXACT=Y
+[2026-08-12 06:40:47.883]   CHECK ADDRESS -> EMPTY
+[2026-08-12 06:40:47.883]   CHECK OOS -> all in stock (1)
+[2026-08-12 06:40:47.883]   CHECK PRODUCT -> FULL 1-3 (1/1)
+[2026-08-12 06:40:49.073]   -> 260804440_E140_VANG_E140_Vang.jpg | 1920x2560 -> 859x1145 (45%) | 253kb -> 88kb | resized
+[2026-08-12 06:40:49.073]   SAVE IMAGE: 1/1 images (skipped=0) | total=88kb
+[2026-08-12 06:41:00.467]   [!] Message panel still visible after close attempts
+[2026-08-12 06:41:05.791] [TAG] Update failed | order=260804440 target=2 error=Locator.click: Timeout 2500ms exceeded.
+Call log:
+  - waiting for locator("table tbody tr").filter(has_text="260804440").first.locator("td").nth(4).locator("button[tds-tooltip='Thêm nhãn'], button:has(i.tdsi-price-tag-fill)").first
+    - locator resolved to <button size="sm" tds-popover="" color="custom" tds-tooltip="Thêm nhãn" popoverplacement="left" class="bg-transparent border border-transparent focus:ring-transparent">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="grid grid-cols-4 gap-4">…</div> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <tds-label class="flex items-center tds-label-theme-default">…</tds-label> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  2 × retrying click action
+      - waiting 100ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="flex justify-center items-center text-centefa-rotate-180">…</div> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div class="grid grid-cols-4 gap-4">…</div> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <tds-label class="flex items-center tds-label-theme-default">…</tds-label> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div class="flex justify-center items-center text-centefa-rotate-180">…</div> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+
+[2026-08-12 06:41:05.792]   [!] TAG FAILED: target=2
+[2026-08-12 06:41:11.410]   [!] Message panel still visible after close attempts
+[2026-08-12 06:41:19.326]   [!] Message panel still visible after close attempts
+[2026-08-12 06:41:20.218]   [!] FAILED: Page.wait_for_timeout: Target page, context or browser has been closed
+[2026-08-12 06:41:20.220]   [!] Stack trace:
+Traceback (most recent call last):
+  File "F:\tool\bot-store-management\app\order_page.py", line 2323, in collect_and_enrich_single_pass
+    self.open_message_panel_by_row(msg_row)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "F:\tool\bot-store-management\app\order_page.py", line 3228, in open_message_panel_by_row
+    self._click_locator_resilient(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.message_button_in_row(row),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "open message panel",
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "F:\tool\bot-store-management\app\order_page.py", line 210, in _click_locator_resilient
+    self.page.wait_for_timeout(100)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\sync_api\_generated.py", line 11536, in wait_for_timeout
+    self._sync(self._impl_obj.wait_for_timeout(timeout=timeout))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_page.py", line 1101, in wait_for_timeout
+    await self._main_frame.wait_for_timeout(timeout)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_frame.py", line 862, in wait_for_timeout
+    await self._channel.send("waitForTimeout", None, {"waitTimeout": timeout})
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\site-packages\playwright\_impl\_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Page.wait_for_timeout: Target page, context or browser has been closed
+
+[2026-08-12 06:41:20.221]   CSV +1: total=1
+[2026-08-12 06:41:20.234] [!] Page closed unexpectedly after order processing — stopping
+[2026-08-12 06:41:20.234] Done | processed=1 actioned=1 error=2 csv_rows=1
+[2026-08-12 06:41:20.235] [SHUTDOWN] Skip keep-open: page is already closed
+[2026-08-12 06:41:20.266] [SHUTDOWN] Skip saving session state: BrowserContext.storage_state: Target page, context or browser has been closed
+[2026-08-12 06:41:20.269] [SHUTDOWN] Closed browser context
+[2026-08-12 06:41:20.272] [SHUTDOWN] Closed browser
+[2026-08-12 06:41:20.273] [SHUTDOWN] Process ended.
+[2026-08-12 06:41:40.907] ================================================================================
+[2026-08-12 06:41:40.907] [CLI] Selected options | feature=confirm_order | campaign='LIVE 11/8/2026' | run_mode=all | price_codes=A1=165, A2=169, A3=169
+[2026-08-12 06:41:40.908] [START] Begin automation process
+[2026-08-12 06:41:42.032] [SCREEN] 1440x900 (scale=1x)
+[2026-08-12 06:41:42.032] [NAV] Open login page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:41:43.025] [NAV] Loaded page: https://linhdanshopld.tpos.vn/tpagev2/#/account/login
+[2026-08-12 06:41:47.906] [NAV] Auto-login succeeded. Current page: https://linhdanshopld.tpos.vn/tpagev2/#/dashboard
+[2026-08-12 06:41:47.913] [NAV] Open order page: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:41:51.146] [NAV] Warning: order table rows not visible after 3000ms, proceeding anyway
+[2026-08-12 06:41:51.147] [NAV] Order page loaded: https://linhdanshopld.tpos.vn/tpagev2/#/order
+[2026-08-12 06:41:51.162] [FILTER] Rows before applying campaign filter: 101
+[2026-08-12 06:41:51.180] [FILTER] Open filter panel
+[2026-08-12 06:41:51.896] [FILTER] Focus campaign select
+[2026-08-12 06:41:52.423] [FILTER] Search campaign by date text: 11/8/2026
+[2026-08-12 06:41:52.923] [FILTER] Apply filter
+[2026-08-12 06:41:54.009] [FILTER] Applied campaign filter: LIVE 11/8/2026
+[2026-08-12 06:41:54.024] [FILTER] Rows right after filter apply: 50
+[2026-08-12 06:41:54.025] Single-pass collect+enrich (cap=unlimited)
+[2026-08-12 06:41:54.025] CSV: F:\tool\bot-store-management\data\orders_1182026_20260812_064154.csv
+[2026-08-12 06:41:54.051] SINGLE-PASS started: rows=50 on page=1
+[2026-08-12 06:41:54.051] Expected total from tab count=290
+[2026-08-12 06:41:54.061] [PAGE 1] 50 rows
+[2026-08-12 06:41:54.090] SKIP: stt=44392 order=260804444 reason=tag '1'
+[2026-08-12 06:41:54.118] SKIP: stt=44391 order=260804443 reason=tag '1'
+[2026-08-12 06:41:54.145] SKIP: stt=44390 order=260804442 reason=tag '7'
+[2026-08-12 06:41:54.172] SKIP: stt=44389 order=260804441 reason=tag '1'
+[2026-08-12 06:41:54.276] ------------------------------------------------------------
+[2026-08-12 06:41:54.277] ---- ORDER = 260804440  (1)  Trang Pham  old_tag=(none) ----
+[2026-08-12 06:41:55.781]   PRODUCTS=[163] NOTE_PRICES=[163] MATCHED=1/1 EXACT=Y
+[2026-08-12 06:41:55.814]   CHECK ADDRESS -> EMPTY
+[2026-08-12 06:41:55.815]   CHECK OOS -> all in stock (1)
+[2026-08-12 06:41:55.816]   CHECK PRODUCT -> FULL 1-3 (1/1)
+[2026-08-12 06:41:55.817]   CLEAN IMAGE: removed old images for 260804440
+[2026-08-12 06:41:56.891]   -> 260804440_E140_VANG_E140_Vang.jpg | 1920x2560 -> 859x1145 (45%) | 253kb -> 88kb | resized
+[2026-08-12 06:41:56.892]   SAVE IMAGE: 1/1 images (skipped=0) | total=88kb
+[2026-08-12 06:42:00.570]   TAG -> 2
+[2026-08-12 06:42:11.047]   IMG READY: images attached, indicator visible
+[2026-08-12 06:42:13.413]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:42:16.241]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:42:16.241]   [!] Send button: all 2 attempts done for 260804440
+[2026-08-12 06:42:19.664]   SEND: text='' | images=1
+[2026-08-12 06:42:22.506]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:42:25.364]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:42:25.365]   [!] Send button: all 2 attempts done for 260804440
+[2026-08-12 06:42:28.603]   SEND: text='Dạ chị Trang Pham ! Số lượng đ...' | images=0
+[2026-08-12 06:42:28.625]   POST MATCH: 11-08-2026 18:58
+[2026-08-12 06:42:31.688]   COMMENT REPLY SENT: 'Dạ chị Trang Pham ơi ! nhắn lại shop với ạ....'
+[2026-08-12 06:42:33.043]   DONE ORDER = 260804440 | STT = 1 | TAG = 2 | MATCH = 1/1 | NAME = Trang Pham | TIME = 38.8s
+[2026-08-12 06:42:33.155]   CSV +1: total=1
+[2026-08-12 06:42:33.294] ------------------------------------------------------------
+[2026-08-12 06:42:33.295] ---- ORDER = 260804439  (2)  Nguyễn Thị Ái  old_tag=(none) ----
+[2026-08-12 06:42:34.708]   PRODUCTS=[159] NOTE_PRICES=[159] MATCHED=1/1 EXACT=Y
+[2026-08-12 06:42:34.747]   CHECK ADDRESS -> EMPTY
+[2026-08-12 06:42:34.748]   CHECK OOS -> all in stock (1)
+[2026-08-12 06:42:34.748]   CHECK PRODUCT -> FULL 1-3 (1/1)
+[2026-08-12 06:42:35.196]   -> 260804439_B186_KEM_B186_Kem.jpg | 1365x1023 | 146kb -> 69kb | q=55
+[2026-08-12 06:42:35.197]   SAVE IMAGE: 1/1 images (skipped=0) | total=69kb
+[2026-08-12 06:42:39.419]   TAG -> 2
+[2026-08-12 06:42:49.927]   IMG READY: images attached, indicator visible
+[2026-08-12 06:42:52.260]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:42:55.078]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:42:55.078]   [!] Send button: all 2 attempts done for 260804439
+[2026-08-12 06:42:58.498]   SEND: text='' | images=1
+[2026-08-12 06:43:01.349]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:43:04.165]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:43:04.165]   [!] Send button: all 2 attempts done for 260804439
+[2026-08-12 06:43:07.387]   SEND: text='Dạ chị ! Số lượng đơn chốt đủ ...' | images=0
+[2026-08-12 06:43:07.402]   POST MATCH: 11-08-2026 18:58
+[2026-08-12 06:43:10.401]   COMMENT REPLY SENT: 'Shop nhắn cho chị chưa thấy phản hồi ạ. Dạ chị Ngu...'
+[2026-08-12 06:43:11.746]   DONE ORDER = 260804439 | STT = 2 | TAG = 2 | MATCH = 1/1 | NAME = Nguyễn Thị Ái | TIME = 38.5s
+[2026-08-12 06:43:11.846]   CSV +1: total=2
+[2026-08-12 06:43:11.974] ------------------------------------------------------------
+[2026-08-12 06:43:11.975] ---- ORDER = 260804438  (3)  Hồ Duyên  old_tag=(none) ----
+[2026-08-12 06:43:13.424]   PRODUCTS=[165, 126, 146] NOTE_PRICES=[146, 165, 165, 126] MATCHED=3/3 EXACT=N
+[2026-08-12 06:43:13.511]   CHECK ADDRESS -> VALID
+[2026-08-12 06:43:13.512]   CHECK OOS -> all in stock (3)
+[2026-08-12 06:43:13.512]   CHECK PRODUCT -> PARTIAL (3/3)
+[2026-08-12 06:43:14.347]   -> 260804438_C240_KEM_C240_Kem.jpg | 1920x2560 -> 1070x1428 (56%) | 187kb -> 84kb | resized
+[2026-08-12 06:43:15.154]   -> 260804438_F184_NAU_F184_Nau.jpg | 1920x2560 -> 758x1011 (39%) | 594kb -> 57kb | resized
+[2026-08-12 06:43:15.542]   -> 260804438_B91_KEM_B91_Kem.jpg | 1365x1023 | 199kb -> 94kb | q=35
+[2026-08-12 06:43:15.543]   SAVE IMAGE: 3/3 images (skipped=0) | total=236kb
+[2026-08-12 06:43:18.108]   TAG -> 1.2
+[2026-08-12 06:43:29.543]   IMG READY: images attached, indicator visible
+[2026-08-12 06:43:31.886]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:43:34.705]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:43:34.706]   [!] Send button: all 2 attempts done for 260804438
+[2026-08-12 06:43:38.528]   SEND: text='' | images=3
+[2026-08-12 06:43:38.582]   POST MATCH: 11-08-2026 18:58
+[2026-08-12 06:43:41.739]   COMMENT REPLY SENT: 'Dạ chị Hồ Duyên ! Shop nhắn, chị chưa phản hồi ạ....'
+[2026-08-12 06:43:43.120]   DONE ORDER = 260804438 | STT = 3 | TAG = 1.2 | MATCH = 3/3 | NAME = Hồ Duyên | TIME = 31.1s
+[2026-08-12 06:43:43.235]   CSV +1: total=3
+[2026-08-12 06:43:43.370] ------------------------------------------------------------
+[2026-08-12 06:43:43.371] ---- ORDER = 260804437  (4)  Nguyễn Thy  old_tag=(none) ----
+[2026-08-12 06:43:44.747]   PRODUCTS=[160] NOTE_PRICES=[160] MATCHED=1/1 EXACT=Y
+[2026-08-12 06:43:44.781]   CHECK ADDRESS -> VALID
+[2026-08-12 06:43:44.781]   CHECK OOS -> all in stock (1)
+[2026-08-12 06:43:44.782]   CHECK PRODUCT -> FULL 1-3 (1/1)
+[2026-08-12 06:43:45.605]   -> 260804437_H169_XANH_H169_Xanh.jpg | 1920x2560 -> 839x1119 (44%) | 515kb -> 64kb | resized
+[2026-08-12 06:43:45.606]   SAVE IMAGE: 1/1 images (skipped=0) | total=64kb
+[2026-08-12 06:43:48.141]   BILL: create_order_bill ok for 260804437
+[2026-08-12 06:43:51.896]   TAG -> 1
+[2026-08-12 06:44:02.858]   IMG READY: images attached, indicator visible
+[2026-08-12 06:44:05.193]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:44:08.036]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:44:08.037]   [!] Send button: all 2 attempts done for 260804437
+[2026-08-12 06:44:11.459]   SEND: text='' | images=1
+[2026-08-12 06:44:11.487]   POST MATCH: 11-08-2026 18:58
+[2026-08-12 06:44:14.543]   COMMENT REPLY SENT: 'Chị Nguyễn Thy ơi ! shop lên đơn rồi ạ ! chị check...'
+[2026-08-12 06:44:18.298]   BILL IMG: attachment ready while bill modal still open for 260804437 — closing modal and sending
+[2026-08-12 06:44:22.482]   [!] Send attempt 1/2: content still in panel, retrying...
+[2026-08-12 06:44:25.320]   [!] Send attempt 2/2: content still in panel, retrying...
+[2026-08-12 06:44:25.320]   [!] Send button: all 2 attempts done for 260804437
+[2026-08-12 06:44:28.737]   BILL IMG: sent for 260804437
+[2026-08-12 06:44:32.579]   DONE ORDER = 260804437 | STT = 4 | TAG = 1 | MATCH = 1/1 | NAME = Nguyễn Thy | TIME = 49.2s
+[2026-08-12 06:44:32.680]   CSV +1: total=4
+[2026-08-12 06:44:32.808] ------------------------------------------------------------
+[2026-08-12 06:44:32.808] ---- ORDER = 260804436  (5)  Trần Thiên Hương  old_tag=(none) ----
+[2026-08-12 06:44:34.190]   PRODUCTS=[148] NOTE_PRICES=[184] MATCHED=0/1 EXACT=N
+[2026-08-12 06:44:34.221]   OOS: forecast_stocks=[0] oos_count=1/1
+[2026-08-12 06:44:34.222]   CHECK ADDRESS -> VALID
+[2026-08-12 06:44:34.222]   CHECK OOS -> 1 hết hàng, 0 còn hàng | K115 KEM(148)
+[2026-08-12 06:44:34.223]   CHECK PRODUCT -> OOS (0/1)
+[2026-08-12 06:44:34.247]   SKIP IMAGE (OOS): [K115 KEM] K115 (Kem) (price=148)
+[2026-08-12 06:44:34.248]   SAVE IMAGE: 0/1 images (skipped=1) | total=0kb
+[2026-08-12 06:44:45.560]   [!] Message panel still visible after close attempts
+[2026-08-12 06:44:50.863] [TAG] Update failed | order=260804436 target=1.4 error=Locator.click: Timeout 2500ms exceeded.
+Call log:
+  - waiting for locator("table tbody tr").filter(has_text="260804436").first.locator("td").nth(4).locator("button[tds-tooltip='Thêm nhãn'], button:has(i.tdsi-price-tag-fill)").first
+    - locator resolved to <button size="sm" tds-popover="" color="custom" tds-tooltip="Thêm nhãn" popoverplacement="left" class="bg-transparent border border-transparent focus:ring-transparent">…</button>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <label>…</label> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1818 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <tds-label class="flex items-center tds-label-theme-default">…</tds-label> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  2 × retrying click action
+      - waiting 100ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="flex justify-center items-center text-centefa-rotate-180">…</div> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <tds-modal-container tabindex="-1" role="dialog" class="ng-tns-c3172365033-1818 ng-trigger ng-trigger-modalContainer tds-modal-wrap tds-modal-default ng-star-inserted">…</tds-modal-container> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <tds-label class="flex items-center tds-label-theme-default">…</tds-label> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div class="flex justify-center items-center text-centefa-rotate-180">…</div> from <div class="cdk-overlay-container">…</div> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+
+[2026-08-12 06:44:50.864]   [!] TAG FAILED: target=1.4
+[2026-08-12 06:44:56.461] [INTERRUPT] Stop requested by user (Ctrl+C). Shutting down cleanly...
+[2026-08-12 06:44:57.902] [INTERRUPT] Forced stop during cleanup (Ctrl+C x2). Exiting.
+[2026-08-12 06:44:57.902] [SHUTDOWN] Process ended.

@@ -262,11 +262,6 @@ class OrderPage:
         row = self.row_by_code(order_code)
         return row.locator("button[title='Sửa'], [aria-label='Sửa'], button, a").first
 
-    def open_edit_modal_by_row(self, row: Locator) -> None:
-        row.locator(
-            "button[tds-tooltip='Chỉnh sửa'], button:has(i.tdsi-edit-fill), button[title='Sửa'], [aria-label='Sửa']"
-        ).first.click()
-
     def modal(self) -> Locator:
         return self._first([
             "div[role='dialog']:has-text('Sửa đơn hàng')",
@@ -341,26 +336,104 @@ class OrderPage:
     def save_button(self) -> Locator:
         return self.page.get_by_role("button", name="Lưu")
 
-    def close_button(self) -> Locator:
-        return self._first([
+    def modal_container(self) -> Locator:
+        """Overlay wrapper of the edit modal — used to scope close controls to it.
+
+        Prefers a *visible* container: Angular can leave a stale hidden
+        tds-modal-container in the DOM, and scoping to that one makes every close
+        button inside it look hidden.
+        """
+        selectors = [
+            "tds-modal-container:has-text('Sửa đơn hàng')",
+            "tds-modal-container",
+            "div[role='dialog']:has-text('Sửa đơn hàng')",
+            "div[role='dialog']",
+        ]
+        for selector in selectors:
+            if self._has_visible_selector(selector):
+                return self.page.locator(selector).first
+        return self._first(selectors)
+
+    def _modal_close_selectors(self) -> tuple[str, ...]:
+        """Close controls of the edit modal, most specific first.
+
+        Confirmed DOM of the X control:
+            <div tds-modal-close aria-label="Close" class="tds-modal-close">
+              <span class="tds-modal-close-x">
+                <button tds-button-close class="tds-button-close tds-button-close-xl">
+                  <i class="tdsi-close-fill">
+
+        The X comes before the 'Đóng' footer button because 'Đóng' also exists in
+        other overlays (bill modal, dropdowns), so a text match can resolve to a
+        stale hidden one. `button[tds-button-close]` is kept element-qualified —
+        a bare [tds-button-close] also matches the clear-X inside tds-select.
+        """
+        return (
+            "[tds-modal-close] button[tds-button-close]",
+            "div.tds-modal-close button.tds-button-close",
+            "span.tds-modal-close-x button",
+            "button[tds-button-close]",
+            "button.tds-button-close",
+            "button:has(i.tdsi-close-fill)",
+            "button:has(i.tdsi-close-line)",
+            "button:has(i.tdsi-times-fill)",
+            "button:has(i.tdsi-times-line)",
+            "button[aria-label='Close']",
+            "button[title='Đóng']",
             "button:has-text('Đóng')",
             "button:has-text('Close')",
-            "button[aria-label='Close']",
-        ])
+        )
+
+    def modal_close_control(self) -> Locator | None:
+        """First *visible* close control inside the edit modal, or None if absent.
+
+        The site no longer closes this modal on Escape, so the control has to be
+        clicked. Returning None lets callers report that instead of falling back
+        to a keypress that does nothing.
+        """
+        root = self.modal_container()
+        for selector in self._modal_close_selectors():
+            try:
+                candidate = root.locator(selector).first
+                if candidate.count() > 0 and candidate.is_visible():
+                    return candidate
+            except Exception:
+                continue
+        return None
 
     def message_button_in_row(self, row: Locator) -> Locator:
         return row.locator(
             "a[tds-tooltip='Gửi tin nhắn'], a:has(i.tdsi-messenger-fill)"
         ).first
 
-    def message_box(self) -> Locator:
-        return self._first([
+    def _message_box_selectors(self) -> list[str]:
+        """Chat composer textarea, most specific first.
+
+        Deliberately has NO bare `textarea` fallback. The edit modal's "Ghi chú"
+        field is also a textarea, so a catch-all here lets the bot type the
+        customer's message into the order note and send that instead — the last
+        entry is scoped to the chat panel for exactly that reason.
+        """
+        return [
             "textarea[data-placeholder*='Nhập nội dung tin nhắn']",
             "textarea[placeholder*='Nhập nội dung tin nhắn']",
             "textarea[placeholder*='Tin nhắn']",
-            "textarea[placeholder*='Nhập nội dung']",
-            "textarea",
-        ])
+            "div.chat-body textarea",
+        ]
+
+    def message_box(self) -> Locator:
+        return self._first(self._message_box_selectors())
+
+    def message_panel_composer(self) -> Locator | None:
+        """The chat composer if present *and* visible, else None."""
+        for selector in self._message_box_selectors():
+            try:
+                candidate = self.page.locator(selector).first
+                if candidate.count() > 0 and candidate.is_visible():
+                    return candidate
+            except Exception:
+                continue
+        return None
 
     def send_message_button(self) -> Locator:
         return self._first([
@@ -398,24 +471,6 @@ class OrderPage:
             _log(f"  [!] Attach images failed: {exc}")
             _log(f"  [!] Stack trace:\n{traceback.format_exc()}")
             return False
-
-    def _wait_panel_ready(self) -> None:
-        """Wait for message panel to finish loading (spinner gone), then focus textarea."""
-        try:
-            self.page.wait_for_selector(
-                "textarea[data-placeholder*='Nhập nội dung tin nhắn'], "
-                "textarea[placeholder*='Nhập nội dung tin nhắn'], "
-                "textarea[placeholder*='Tin nhắn']",
-                state="visible",
-                timeout=self._cfg.spinner_hide_ms,
-            )
-        except Exception:
-            self.page.wait_for_timeout(self._cfg.panel_open_ms)
-        try:
-            self.page.wait_for_selector("tds-spin", state="hidden", timeout=self._cfg.spinner_hide_ms)
-        except Exception:
-            pass
-        self.message_box().click(timeout=self._cfg.click_timeout)
 
     def _wait_for_overlay_masks_hidden(self, timeout_ms: int | None = None) -> bool:
         """Wait until transient drawer/backdrop masks no longer block pointer events."""
@@ -459,23 +514,6 @@ class OrderPage:
             steps=max(1, int(steps)),
         )
         return True
-
-    def _wait_panel_closed(self) -> None:
-        """Wait for message panel to fully close after pressing Escape."""
-        try:
-            self.page.wait_for_selector(
-                "div.chat-body",
-                state="hidden",
-                timeout=self._cfg.escape_close_ms * 5,
-            )
-        except Exception:
-            self.page.wait_for_timeout(self._cfg.escape_close_ms)
-        if not self._wait_for_overlay_masks_hidden(timeout_ms=max(self._cfg.escape_close_ms * 3, 800)):
-            try:
-                self.page.keyboard.press("Escape")
-            except Exception:
-                pass
-            self._wait_for_overlay_masks_hidden(timeout_ms=max(self._cfg.escape_close_ms * 2, 500))
 
     def _send_batched_in_open_panel(self, message: str, img_list: list[Path], order_code: str) -> None:
         """Send images + optional text in an already-open panel, handling batching."""
@@ -673,7 +711,10 @@ class OrderPage:
         try:
             self._dismiss_notifications()
             self.open_message_panel_by_row(row)
-            self._wait_panel_ready()
+            if not self._wait_panel_ready():
+                _log(f"  [!] Send message skipped: no composer for {order_code}")
+                self._close_message_panel_safely()
+                return False
             self._send_batched_in_open_panel(message, image_paths or [], order_code)
             self.page.keyboard.press("Escape")
             self._wait_panel_closed()
@@ -994,44 +1035,6 @@ class OrderPage:
         _log(f"  SAVE IMAGE: {len(saved_paths)}/{len(items)} images (skipped={skipped}) | total={total_kb:.0f}kb")
         return saved_paths
 
-    def _dismiss_notifications(self) -> None:
-        """Close any popup notifications or open overlays that could intercept clicks."""
-        try:
-            # Close stacked overlays (chat panel, bill modal, dropdowns) that block clicks
-            overlay_indicators = (
-                "div.cdk-overlay-backdrop",
-                "div.tds-drawer-mask",
-                "app-modal-list-bill",
-                "div.chat-body",
-            )
-            for _ in range(3):
-                has_overlay = any(
-                    self.page.locator(sel).count() > 0
-                    and self.page.locator(sel).first.is_visible()
-                    for sel in overlay_indicators
-                )
-                if not has_overlay:
-                    break
-                self.page.keyboard.press("Escape")
-                self.page.wait_for_timeout(self._cfg.overlay_dismiss_ms)
-        except Exception:
-            pass
-        try:
-            close_buttons = self.page.locator(
-                "tds-notification button.tds-button-close, "
-                "tds-notification .tds-notification-notice-close button"
-            )
-            count = close_buttons.count()
-            for i in range(count):
-                try:
-                    close_buttons.nth(i).click(timeout=self._cfg.notification_click_ms, force=True)
-                except Exception:
-                    pass
-            if count > 0:
-                self.page.wait_for_timeout(self._cfg.overlay_dismiss_ms)
-        except Exception:
-            pass
-
     def _read_modal_address(self) -> str:
         """Read address input value via JS evaluate — no click needed."""
         value = self.page.evaluate("""
@@ -1232,60 +1235,6 @@ class OrderPage:
 
         tag = _resolve_product_match_tag(have_address, total_products, exact_match)
         return have_address, matched_count, total_products, tag, note_prices, oos_products
-
-    def _close_edit_modal_safely(self) -> None:
-        # Dismiss any stacked overlays (message panel, bill modal, popover)
-        # before closing the edit modal — prevents "intercepts pointer events" errors
-        try:
-            blocking_selectors = (
-                "app-modal-list-bill",
-                "div.cdk-overlay-backdrop",
-                "div.tds-drawer-mask",
-                "tds-modal-container",
-            )
-            for _ in range(3):
-                has_overlay = any(
-                    self.page.locator(sel).first.is_visible()
-                    for sel in blocking_selectors
-                    if self.page.locator(sel).count() > 0
-                )
-                if not has_overlay:
-                    break
-                self.page.keyboard.press("Escape")
-                self.page.wait_for_timeout(300)
-        except Exception:
-            pass
-        modal = self.modal()
-        try:
-            if modal.count() == 0 or not modal.is_visible():
-                return
-        except Exception:
-            return
-        try:
-            close_btn = self.close_button()
-            if close_btn.count() > 0 and close_btn.is_visible():
-                close_btn.click(timeout=self._cfg.click_timeout)
-            else:
-                self.page.keyboard.press("Escape")
-            try:
-                modal.wait_for(
-                    state="hidden",
-                    timeout=max(self._cfg.escape_close_ms * 2, 500),
-                )
-            except Exception:
-                pass
-        except Exception:
-            try:
-                self.page.keyboard.press("Escape")
-                try:
-                    modal.wait_for(
-                        state="hidden",
-                        timeout=max(self._cfg.escape_close_ms * 2, 500),
-                    )
-                except Exception:
-                    pass
-            except Exception:
-                pass
 
     def _create_order_bill(self, order_code: str) -> bool:
         """Create sales bill (phiếu bán hàng) in the edit modal for TAG_1 orders.
@@ -2319,10 +2268,17 @@ class OrderPage:
                         self._dismiss_notifications()
                         msg_row = self.row_by_code(order_code)
 
+                        panel_ready = False
                         if msg_row.count() > 0:
                             self.open_message_panel_by_row(msg_row)
-                            self._wait_panel_ready()
+                            panel_ready = self._wait_panel_ready()
+                            if not panel_ready:
+                                _log(f"  SKIP MSG: no chat composer for {order_code}")
+                                row_data["Decision"] = "skip_no_message_panel"
+                        else:
+                            _log(f"  [!] Row not found for sending: {order_code}")
 
+                        if panel_ready:
                             partner_name = self._read_partner_name()
 
                             # IMAGE: send product images first (in-stock only for OOS/mismatch tags)
@@ -2384,8 +2340,6 @@ class OrderPage:
 
                             self.page.keyboard.press("Escape")
                             self._wait_panel_closed()
-                        else:
-                            _log(f"  [!] Row not found for sending: {order_code}")
 
                     order_elapsed = time.time() - order_start
                     oos_label = f" | OOS = {len(oos_products)}/{total_products}" if oos_products else ""
@@ -2657,10 +2611,17 @@ class OrderPage:
                         self._dismiss_notifications()
                         msg_row = self.row_by_code(order_code)
 
+                        panel_ready = False
                         if msg_row.count() > 0:
                             self.open_message_panel_by_row(msg_row)
-                            self._wait_panel_ready()
+                            panel_ready = self._wait_panel_ready()
+                            if not panel_ready:
+                                _log(f"  SKIP MSG: no chat composer for {order_code}")
+                                row_data["Decision"] = "skip_no_message_panel"
+                        else:
+                            _log(f"  [!] Row not found for sending: {order_code}")
 
+                        if panel_ready:
                             partner_name = self._read_partner_name()
 
                             # IMAGE: send product images first (in-stock only for OOS/mismatch tags)
@@ -2726,8 +2687,6 @@ class OrderPage:
 
                             self.page.keyboard.press("Escape")
                             self._wait_panel_closed()
-                        else:
-                            _log(f"  [!] Row not found for sending: {order_code}")
 
                     order_elapsed = time.time() - order_start
                     oos_label = f" | OOS = {len(oos_products)}/{total_products}" if oos_products else ""
@@ -3219,7 +3178,7 @@ class OrderPage:
     def open_edit_modal_by_row(self, row: Locator) -> None:
         self._click_locator_resilient(
             row.locator(
-                "button[tds-tooltip='Chá»‰nh sá»­a'], button:has(i.tdsi-edit-fill), button[title='Sá»­a'], [aria-label='Sá»­a']"
+                "button[tds-tooltip='Chỉnh sửa'], button:has(i.tdsi-edit-fill), button[title='Sửa'], [aria-label='Sửa']"
             ).first,
             "open edit modal",
         )
@@ -3235,7 +3194,12 @@ class OrderPage:
             "div.chat-body",
             "div.cdk-overlay-container div.flex.flex-row.justify-between.items-center.bg-white.w-full.p-2",
             "div.cdk-overlay-container .comment-count",
-            "div.cdk-overlay-container textarea",
+            # Must match ONLY the message textarea. A bare `textarea` here also
+            # matched the edit modal's "Ghi chú" field, so every open edit modal
+            # looked like an open message panel and triggered pointless Escape loops.
+            "div.cdk-overlay-container textarea[data-placeholder*='Nhập nội dung tin nhắn']",
+            "div.cdk-overlay-container textarea[placeholder*='Nhập nội dung tin nhắn']",
+            "div.cdk-overlay-container textarea[placeholder*='Tin nhắn']",
         )
 
     def _message_panel_is_open(self) -> bool:
@@ -3303,25 +3267,43 @@ class OrderPage:
         if self._message_panel_is_open():
             _log("  [!] Message panel still visible after close attempts")
 
-    def _wait_panel_ready(self) -> None:
-        """Wait for message panel to finish loading (spinner gone), then focus textarea."""
+    def _wait_panel_ready(self) -> bool:
+        """Wait for the chat composer to load, then focus it. True when ready.
+
+        Returns False instead of raising when the panel opened without a composer
+        (customer has no conversation) or it never loaded in time, so callers can
+        skip sending rather than typing into whatever textarea is on screen.
+        """
         if self._page_is_closed():
-            return
+            return False
+        wait_ms = self._cfg.message_panel_ready_ms
         try:
             self.page.wait_for_selector(
-                "textarea[data-placeholder*='Nháº­p ná»™i dung tin nháº¯n'], "
-                "textarea[placeholder*='Nháº­p ná»™i dung tin nháº¯n'], "
-                "textarea[placeholder*='Tin nháº¯n']",
+                ", ".join(self._message_box_selectors()),
                 state="visible",
-                timeout=self._cfg.spinner_hide_ms,
+                timeout=wait_ms,
             )
         except Exception:
-            self.page.wait_for_timeout(self._cfg.panel_open_ms)
+            panel_state = "open" if self._has_visible_selector("div.chat-body") else "did not open"
+            _log(
+                f"  [!] MSG PANEL NOT READY: no composer after {wait_ms}ms "
+                f"(chat panel {panel_state})"
+            )
+            return False
         try:
             self.page.wait_for_selector("tds-spin", state="hidden", timeout=self._cfg.spinner_hide_ms)
         except Exception:
             pass
-        self.message_box().click(timeout=self._cfg.click_timeout)
+        composer = self.message_panel_composer()
+        if composer is None:
+            _log("  [!] MSG PANEL NOT READY: composer disappeared after loading")
+            return False
+        try:
+            composer.click(timeout=self._cfg.click_timeout)
+        except Exception as exc:
+            _log(f"  [!] MSG PANEL NOT READY: cannot focus composer: {exc}")
+            return False
+        return True
 
     def _wait_panel_closed(self) -> None:
         """Wait for message panel and related overlays to fully close after pressing Escape."""
@@ -3370,14 +3352,27 @@ class OrderPage:
         except Exception:
             pass
 
+    def _modal_is_hidden(self, modal: Locator) -> bool:
+        try:
+            modal.wait_for(
+                state="hidden",
+                timeout=max(self._cfg.escape_close_ms * 2, 500),
+            )
+            return True
+        except Exception:
+            return False
+
     def _close_edit_modal_safely(self) -> None:
         if self._page_is_closed():
             return
+        # Dismiss overlays stacked ON TOP of the edit modal (message panel, bill
+        # modal, backdrops). The edit modal is itself a tds-modal-container, so it
+        # must stay out of this check — including it made us Escape at our own modal.
         try:
             for _ in range(4):
                 has_overlay = any(
                     self._has_visible_selector(sel)
-                    for sel in (*self._blocking_overlay_selectors(), "tds-modal-container")
+                    for sel in self._blocking_overlay_selectors()
                 )
                 if not has_overlay:
                     break
@@ -3393,28 +3388,32 @@ class OrderPage:
                 return
         except Exception:
             return
-        try:
-            close_btn = self.close_button()
-            if close_btn.count() > 0 and close_btn.is_visible():
-                close_btn.click(timeout=self._cfg.click_timeout, no_wait_after=True)
-            else:
-                self.page.keyboard.press("Escape")
+
+        # Escape no longer closes this modal — the close control must be clicked.
+        # Try it a few times (plain, then forced past any transient overlay).
+        for attempt in range(3):
+            close_btn = self.modal_close_control()
+            if close_btn is None:
+                break
             try:
-                modal.wait_for(
-                    state="hidden",
-                    timeout=max(self._cfg.escape_close_ms * 2, 500),
+                close_btn.click(
+                    timeout=self._cfg.click_timeout,
+                    force=attempt > 0,
+                    no_wait_after=True,
                 )
-            except Exception:
-                pass
+            except Exception as exc:
+                _log(f"  [!] close edit modal: click attempt {attempt + 1}/3 failed: {exc}")
+            if self._modal_is_hidden(modal):
+                return
+
+        # Last resort only — kept for older builds where Escape still works.
+        try:
+            self.page.keyboard.press("Escape")
         except Exception:
-            try:
-                self.page.keyboard.press("Escape")
-                try:
-                    modal.wait_for(
-                        state="hidden",
-                        timeout=max(self._cfg.escape_close_ms * 2, 500),
-                    )
-                except Exception:
-                    pass
-            except Exception:
-                pass
+            pass
+        if self._modal_is_hidden(modal):
+            return
+        _log(
+            "  [!] Edit modal still open after close attempts "
+            "(close button not found or click blocked)"
+        )

@@ -28,6 +28,7 @@ timeouts:
   click_slow: 4000       # Slow elements: filter panel, Apply button
   modal: 3000            # Wait for order edit modal to appear
   panel_open: 300        # After opening the message panel
+  message_panel_ready: 6000  # Wait for the chat composer to appear after opening the panel
   text_fill: 300         # After filling a textarea
   image_attach: 500      # After file chooser sets image files
   send_post_base: 700             # Base wait AFTER clicking send

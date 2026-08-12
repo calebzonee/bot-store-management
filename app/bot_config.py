@@ -20,7 +20,7 @@ class BotConfig:
 
     # Required timeout keys — must all be present in config.yaml timeouts section
     _REQUIRED_TIMEOUTS = [
-        "click", "click_slow", "modal", "panel_open", "text_fill",
+        "click", "click_slow", "modal", "panel_open", "message_panel_ready", "text_fill",
         "image_attach", "send_post_base",
         "send_post_per_image", "overlay_dismiss", "tag_update",
         "pagination", "filter_search", "filter_search_settle", "filter_apply", "escape_close",
@@ -198,6 +198,11 @@ class BotConfig:
     def panel_open_ms(self) -> int:
         """Wait after opening the message panel."""
         return self._t("panel_open")
+
+    @property
+    def message_panel_ready_ms(self) -> int:
+        """Wait for the chat composer to appear after opening the message panel."""
+        return self._t("message_panel_ready")
 
     @property
     def text_fill_ms(self) -> int:
