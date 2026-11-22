@@ -48,7 +48,8 @@ def _remove_diacritics(text: str) -> str:
 
 def _normalize_customer_tag_label(text: str) -> str:
     """Normalize customer-tag labels so modal text can match config values reliably."""
-    normalized = re.sub(r"\s+", " ", (text or "").strip()).casefold()
+    normalized = unicodedata.normalize("NFC", re.sub(r"\s+", " ", (text or "").strip())).casefold()
+    normalized = normalized.replace("tỉ lệ", "tỷ lệ")  # UI uses both spellings
     return re.sub(r"^\d+\s*", "", normalized)
 
 
@@ -1156,16 +1157,66 @@ class OrderPage:
 
     def _set_customer_ty_le_thap(self) -> bool:
         """Change customer status from 'Bình thường' to '1 Tỷ lệ thấp' via dropdown in modal."""
+        # UI may spell it "Tỷ" or "Tỉ" (the rate label uses "Tỉ lệ giao thành công").
+        low_rate_re = re.compile(r"T[ỷỉyi]\s*l[ệe]\s*th[ấa]p", re.IGNORECASE)
         try:
-            # Click 'Bình thường' to open dropdown
-            btn = self.page.locator("span.cursor-pointer:has-text('Bình thường')").first
-            btn.click(timeout=self._cfg.click_timeout)
+            # Open the customer-status dropdown INSIDE the modal. A page-wide
+            # "span.cursor-pointer:has-text('Bình thường')" can hit the order table
+            # behind the modal, so the dropdown never opens.
+            modal = self.modal()
+            trigger = None
+            for selector in (
+                "span.flex.items-center.font-semibold.font-sans.cursor-pointer:has(i.tdsi-arrow-down-fill)",
+                "span.font-semibold.font-sans.cursor-pointer:has(i.tdsi-arrow-down-fill)",
+                "span.cursor-pointer:has(i.tdsi-arrow-down-fill):has-text('Bình thường')",
+                "span.cursor-pointer:has-text('Bình thường')",
+            ):
+                loc = modal.locator(selector).first
+                if loc.count() > 0:
+                    trigger = loc
+                    break
+            if trigger is None:
+                _log("  [WARN] Failed to set customer 'Tỷ lệ thấp': status trigger not found in modal")
+                return False
+            trigger.click(timeout=self._cfg.click_timeout)
             self.page.wait_for_timeout(self._cfg.panel_open_ms)
 
-            # Select '1 Tỷ lệ thấp' from dropdown
-            item = self.page.locator("div[tds-dropdown-item] a.text-body-2:has-text('Tỷ lệ thấp')").first
+            # Dropdown renders in a page-level overlay; try several item shapes.
+            item = None
+            for selector in (
+                "div[tds-dropdown-item]",
+                "[tds-dropdown-item]",
+                ".cdk-overlay-container li",
+                ".cdk-overlay-container a",
+                ".cdk-overlay-container span",
+            ):
+                loc = self.page.locator(selector).filter(has_text=low_rate_re).first
+                if loc.count() > 0 and loc.is_visible():
+                    item = loc
+                    break
+            if item is None:
+                overlay_text = ""
+                try:
+                    overlay_text = " | ".join(
+                        self.page.locator(".cdk-overlay-container").first.inner_text(timeout=1000).split("\n")
+                    )[:300]
+                except Exception:
+                    pass
+                _log(f"  [WARN] Failed to set customer 'Tỷ lệ thấp': option not found. overlay='{overlay_text}'")
+                try:
+                    self.page.keyboard.press("Escape")
+                except Exception:
+                    pass
+                return False
+
             item.click(timeout=self._cfg.click_timeout)
             self.page.wait_for_timeout(self._cfg.tag_update_ms)
+
+            new_tag = self._read_customer_tag_from_modal()
+            if new_tag and not low_rate_re.search(new_tag):
+                _log(f"  [WARN] Customer status after select is '{new_tag}', expected 'Tỷ lệ thấp'")
+                return False
+            _log(f"  CUSTOMER STATUS -> {new_tag or 'Tỷ lệ thấp'}")
             return True
         except Exception as exc:
             _log(f"  [WARN] Failed to set customer 'Tỷ lệ thấp': {exc}")
