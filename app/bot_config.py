@@ -117,6 +117,14 @@ class BotConfig:
             return 60
 
     @property
+    def max_relogin_per_run(self) -> int:
+        """Max automatic re-logins per run when the session is kicked (0 = never). Default 3."""
+        try:
+            return max(0, int(self._bot.get("max_relogin_per_run", 3)))
+        except (TypeError, ValueError):
+            return 3
+
+    @property
     def bill_reload_retry_count(self) -> int:
         """Number of extra retry attempts for bill image send after reload (0 = no retry)."""
         try:

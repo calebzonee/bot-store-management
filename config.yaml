@@ -11,6 +11,7 @@ bot:
   low_delivery_rate_pct: 60     # Below threshold -> TAG 0 (skip). 0/0, x/1, 1/2 = OK.
   comment_reply_max_retries: 2  # Retry comment reply this many times on failure (0 = no retry).
   bill_reload_retry_count: 2   # Retry sending bill image this many times after reload on failure (0 = no retry).
+  max_relogin_per_run: 3       # Auto re-login when kicked to login page mid-run (0 = off). Caps ping-pong when 2 bots share 1 account.
 
 # ─── Feature flags ───────────────────────────────────────────────────────────
 features:

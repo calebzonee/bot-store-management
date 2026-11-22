@@ -10,6 +10,7 @@ import unicodedata
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
+from typing import Callable
 from playwright.sync_api import Page, Locator
 from playwright._impl._errors import TargetClosedError
 from PIL import Image
@@ -123,6 +124,45 @@ class OrderPage:
     def __init__(self, page: Page, bot_config: BotConfig | None = None):
         self.page = page
         self._cfg = bot_config or BotConfig({})
+        # Injected by main.py: logs in again and opens the order page. Returns True on success.
+        self.relogin_handler: Callable[[], bool] | None = None
+        self._relogin_count = 0
+
+    def is_logged_out(self) -> bool:
+        """True when the site has kicked the session back to the login page."""
+        try:
+            if "account/login" in self.page.url.lower():
+                return True
+            return self.page.locator("input[type='password']:visible").count() > 0
+        except Exception:
+            return False
+
+    def recover_session(self, campaign_label: str) -> bool:
+        """Log in again after the session was kicked, then restore the campaign filter.
+
+        Capped by bot.max_relogin_per_run so two bots sharing one account
+        do not keep kicking each other forever.
+        """
+        if self.relogin_handler is None:
+            _log("[SESSION] Logged out mid-run but no relogin handler is set")
+            return False
+        limit = self._cfg.max_relogin_per_run
+        if self._relogin_count >= limit:
+            _log(f"[SESSION] Logged out again but relogin limit reached ({limit}). "
+                 "Is another bot/device using the same account?")
+            return False
+        self._relogin_count += 1
+        _log(f"[SESSION] Kicked to login page -> relogin {self._relogin_count}/{limit}")
+        try:
+            if not self.relogin_handler():
+                _log("[SESSION] Relogin failed")
+                return False
+            self.apply_campaign_filter(campaign_label)
+            _log("[SESSION] Relogin OK, campaign filter restored — resuming from page 1")
+            return True
+        except Exception as exc:
+            _log(f"[SESSION] Relogin failed: {exc}")
+            return False
 
     def _page_is_closed(self) -> bool:
         try:
@@ -1962,6 +2002,8 @@ class OrderPage:
         processed = 0
         tag_counts: dict[str, int] = {}
         error_count = 0
+        stop_run = False
+        session_lost = False
         enrich_start = time.time()
 
         whitelist = set(self._cfg.test_order_ids)
@@ -1985,6 +2027,12 @@ class OrderPage:
 
         while True:
             rows, count = self._wait_for_rows_on_page()
+            if count == 0 and self.is_logged_out():
+                if not self.recover_session(campaign_label):
+                    stop_run = True
+                    break
+                page_index = 1
+                rows, count = self._wait_for_rows_on_page()
             if count == 0:
                 break
 
@@ -2404,6 +2452,9 @@ class OrderPage:
                     error_count += 1
                     _log(f"  [!] FAILED: {exc}")
                     _log(f"  [!] Stack trace:\n{traceback.format_exc()}")
+                    if self.is_logged_out():
+                        session_lost = True
+                        row_data["Note"] = f"session_lost: {exc}"
                 finally:
                     self._close_message_panel_safely()
                     self._close_edit_modal_safely()
@@ -2412,13 +2463,33 @@ class OrderPage:
                 csv_writer.write_row(row_data)
                 _log(f"  CSV +1: total={csv_writer.count}")
 
+                # Kicked to login mid-order: this order stays ERR (no tag, so the next
+                # run picks it up) — it is NOT retried here to avoid sending messages twice.
+                if session_lost:
+                    session_lost = False
+                    if not self.recover_session(campaign_label):
+                        stop_run = True
+                        break
+                    page_index = 1
+                    rows, count = self._wait_for_rows_on_page()
+                    i = 0
+                    continue
+
                 # Reload page periodically to prevent memory/performance degradation
                 reload_n = self._cfg.reload_every_n_orders
                 if reload_n > 0 and processed % reload_n == 0:
                     _log(f"  [RELOAD] Refreshing page after {processed} orders to free memory")
                     self.page.reload(wait_until="networkidle")
                     self.page.wait_for_timeout(self._cfg.table_load_ms)
-                    self.apply_campaign_filter(campaign_label)
+                    try:
+                        self.apply_campaign_filter(campaign_label)
+                    except Exception:
+                        if not self.is_logged_out():
+                            raise
+                        if not self.recover_session(campaign_label):
+                            stop_run = True
+                            break
+                        page_index = 1
                     rows, count = self._wait_for_rows_on_page()
                     _log(f"  [RELOAD] Done — {count} rows loaded on page")
                     i = 0
@@ -2436,8 +2507,19 @@ class OrderPage:
                 if i >= count:
                     break
 
+            if stop_run:
+                break
+
             if max_records is not None and total_seen >= max_records:
                 break
+
+            # Kicked without an exception (e.g. during a TAG 0 path) — table is empty now.
+            if self.is_logged_out():
+                if not self.recover_session(campaign_label):
+                    stop_run = True
+                    break
+                page_index = 1
+                continue
 
             marker = self._first_row_marker(rows)
             if not self._go_to_next_page(page_index, marker):
@@ -2447,6 +2529,8 @@ class OrderPage:
         total_elapsed = time.time() - enrich_start
         total_min, total_sec = divmod(int(total_elapsed), 60)
         _log("=" * 60)
+        if stop_run:
+            _log("[SESSION] Run stopped early: session lost and could not log in again")
         tag_summary = "  ".join(f"[{t}]={c}" for t, c in sorted(tag_counts.items()))
         _log(
             f"SUMMARY: processed={processed} skipped={total_skipped} | {tag_summary}  "

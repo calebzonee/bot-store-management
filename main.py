@@ -134,6 +134,18 @@ def main():
                 return
 
             capture_and_save_auth_token(page, config, base_dir=BASE_DIR, log_action=log_action)
+
+            def _relogin() -> bool:
+                # Site kicked the session mid-run (same account logged in elsewhere).
+                if not ensure_login(context, page, config, base_dir=BASE_DIR, session_file=SESSION_FILE, log_console=log_console):
+                    log_action("auth", "relogin", "error", "timeout waiting login")
+                    return False
+                capture_and_save_auth_token(page, config, base_dir=BASE_DIR, log_action=log_action)
+                goto_orders(page, config, log_console)
+                log_action("auth", "relogin", "ok", "")
+                return True
+
+            order_page.relogin_handler = _relogin
             target_order_url = str(config.get("auth", {}).get("order_url", "")).strip() or f"{str(config.get('base_url', '')).rstrip('/')}/#/order"
             if not page.url.startswith(target_order_url):
                 goto_orders(page, config, log_console)
